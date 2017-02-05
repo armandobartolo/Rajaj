@@ -1,5 +1,6 @@
 package org.academiadecodigo.Rajaj;
 
+import org.academiadecodigo.Rajaj.gameObjects.GameObject;
 import org.academiadecodigo.Rajaj.grid.Grid;
 
 /**
@@ -12,17 +13,16 @@ public class Game {
     private boolean crashed;
     private GameLevel level;
     private CollisionDetector collisionDetector;
+    private GameObject[] gameObjects;
 
     public void init() {
+
+        grid.init(8, 16);
+
         this.player = new Player();
         this.grid = new Grid();
         this.level = new GameLevel();
         this.collisionDetector = new CollisionDetector();
-
-
-        grid.init(8, 16);
-
-
 
     }
 
@@ -58,5 +58,6 @@ public class Game {
 
     private void move() {
         grid.move();
+
     }
 }

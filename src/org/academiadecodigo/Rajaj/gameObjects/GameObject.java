@@ -1,7 +1,6 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
 import org.academiadecodigo.Rajaj.CollisionDetector;
-import org.academiadecodigo.Rajaj.Player;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.GridPosition;
 
@@ -27,4 +26,11 @@ public abstract class GameObject {
         return collisionDetector;
     }
 
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
+
+    public void setCollisionDetector(CollisionDetector collisionDetector) {
+        this.collisionDetector = collisionDetector;
+    }
 }

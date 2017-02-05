@@ -18,7 +18,7 @@ public class Grid {
      * Initializes the grid
      */
     public void init(int row, int col) {
-        this.gameObjects = new GameObject[row*col];
+        this.gameObjects = new GameObject[row*col];//array de 128 objectos
         colisionDetector = new CollisionDetector();
 
     }
@@ -36,6 +36,7 @@ public class Grid {
     }
 
     public void move() {
+
 
     }
 }
