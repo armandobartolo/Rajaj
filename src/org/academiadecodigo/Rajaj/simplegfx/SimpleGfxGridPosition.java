@@ -17,9 +17,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     public SimpleGfxGridPosition(SimpleGfxGrid grid) {
 
         this.simpleGfxGrid=grid;
-
-
-
     }
 
 

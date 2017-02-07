@@ -15,6 +15,7 @@ public interface GridPosition {
 
     public void show();
 
+
     public void hide();
 
     public void moveInDirection(int distance);

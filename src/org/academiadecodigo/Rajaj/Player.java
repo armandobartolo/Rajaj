@@ -32,8 +32,8 @@ public class Player extends GameObject implements KeyboardHandler{
 
     }
 
-
-    public void play() {
+    @Override
+    public void move() {
         jump();
 
 
@@ -43,9 +43,6 @@ public class Player extends GameObject implements KeyboardHandler{
         //setPosition();
     }
 
-    public void setPosition(int row) {
-
-    }
 
 
     public int getSize() {
@@ -70,6 +67,8 @@ public class Player extends GameObject implements KeyboardHandler{
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
+
+
 
 
 }

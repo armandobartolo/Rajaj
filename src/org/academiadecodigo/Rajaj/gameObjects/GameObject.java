@@ -46,9 +46,38 @@ public abstract class GameObject {
         this.collisionDetector = collisionDetector;
     }
 
+    public GridPosition getPos() {
+        return gridPosition;
+    }
+
+    public void accelerate(int speed) {
+
+        // Crashed cars can not accelerate
+        /*if (isCrashed()) {
+            return;
+        }
+
+        GridDirection newDirection = direction;
+
+        // Perform a U turn if we have bumped against the wall
+        if (isHittingWall()) {
+            newDirection = direction.oppositeDirection();
+        }*/
+
+        // Accelerate in the choosen direction
+        for (int i = 0; i < speed; i++) {
+            getPos().moveInDirection(1);
+            /*if (collisionDetector.isUnSafe(getPos())) {
+                crash();
+                break;
+            }*/
+        }
+
+    }
 
     public void move() {
 
+        accelerate(10);
 
     }
 }
