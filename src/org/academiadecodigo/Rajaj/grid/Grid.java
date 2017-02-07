@@ -14,8 +14,8 @@ public interface Grid {
      */
     public void init(int number, int number1);
 
-    public int getCols();
+    public int getWidth();
 
-    public int getRows();
+    public int getHeigth();
 
 }

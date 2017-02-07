@@ -13,9 +13,6 @@ public class FinishLine  extends GameObject{
         super(pos, ObjType.FINISHLINE);
     }
 
-    public void move(){
 
-
-    }
 
 }

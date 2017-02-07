@@ -13,10 +13,6 @@ public class Square extends GameObject implements Hitable{
         super(pos, ObjType.SQUARE);
     }
 
-    public void move(){
-
-
-    }
 
 
 }

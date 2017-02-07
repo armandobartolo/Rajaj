@@ -7,8 +7,8 @@ import org.academiadecodigo.Rajaj.grid.Grid;
  */
 public abstract class AbstractGridPosition implements GridPosition {
 
-    private int col;
-    private int row;
+    private int width;
+    private int height;
     private Grid grid;
 
     /**
@@ -20,8 +20,8 @@ public abstract class AbstractGridPosition implements GridPosition {
      */
 
     public AbstractGridPosition(int col, int row, Grid grid) {
-        this.col = col;
-        this.row = row;
+        this.width = col;
+        this.height = row;
         this.grid = grid;
 
     }
@@ -36,27 +36,12 @@ public abstract class AbstractGridPosition implements GridPosition {
 
 
     @Override
-    public void setPos(int col, int row) {
-        this.col = col;
-        this.row = row;
+    public void setPos(int width, int height) {
+        this.width = width;
+        this.height = height;
         show();
     }
 
-    /**
-     * @see GridPosition#getCol()
-     */
-    @Override
-    public int getCol() {
-        return col;
-    }
-
-    /**
-     * @see GridPosition#getRow()
-     */
-    @Override
-    public int getRow() {
-        return row;
-    }
 
     @Override
     public void moveInDirection(int distance) {
@@ -65,7 +50,7 @@ public abstract class AbstractGridPosition implements GridPosition {
 
     @Override
     public boolean equals(GridPosition pos) {
-        return this.col == pos.getCol() && this.row == pos.getRow() ? true : false;
+        return this.width == pos.getCol() && this.height == pos.getRow() ? true : false;
     }
 
 

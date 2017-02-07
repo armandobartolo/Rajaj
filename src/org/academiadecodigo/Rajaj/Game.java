@@ -19,8 +19,8 @@ public class Game {
 
 
 
-    Game(int cols, int rows){
-        grid=GridFactory.makeGrid(cols,rows);
+    Game(int width, int height){
+        grid=GridFactory.makeGrid(width,height);
     }
 
     public void init() {
