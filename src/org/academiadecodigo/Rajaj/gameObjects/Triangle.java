@@ -5,10 +5,10 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 /**
  * Created by codecadet on 05/02/17.
  */
-public class Triagle extends GameObject implements Hitable{
+public class Triangle extends GameObject implements Hittable {
 
 
-    public Triagle(GridPosition pos){
+    public Triangle(GridPosition pos){
         super(pos, ObjType.TRIANGLE);
     }
 

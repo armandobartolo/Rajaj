@@ -5,7 +5,7 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 /**
  * Created by codecadet on 05/02/17.
  */
-public class Square extends GameObject implements Hitable{
+public class Square extends GameObject implements Hittable {
 
     private int size;
 

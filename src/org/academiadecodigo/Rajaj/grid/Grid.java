@@ -20,4 +20,6 @@ public interface Grid {
 
     public GridPosition makeGridPosition(int height, int width);
 
+    public GridPosition makeGridPosition();
+
 }
