@@ -1,49 +1,37 @@
 package org.academiadecodigo.Rajaj.simplegfx;
 
 import org.academiadecodigo.Rajaj.grid.Grid;
-//import org.academiadecodigo.Rajaj.grid.position.GridPosition;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SimpleGfxGrid implements Grid {
 
     public static final int PADDING = 10;
 
-    private final int px = 20;
+    private final int px = 100;
     private int width;
     private int height;
-    private Rectangle rect;
+    private Picture pic;
 
 
-    public SimpleGfxGrid(int cols, int rows) {
-        this.width = (cols * px);
-        this.height = (rows * px);
+    public SimpleGfxGrid(int height, int width) {
+        this.width = width;
+        this.height = height;
     }
 
     @Override
-    public void init(int number, int number1) {
+    public void init(int number, int width) {
 
-        rect = new Rectangle(PADDING, PADDING, width, height);
-        rect.draw();
+        pic = new Picture(PADDING, PADDING, "resources/beeenv.png");
+        pic.draw();
 
-    }
-
-
-    @Override
-    public int getCols() {
-        return (width / px);
     }
 
     @Override
-    public int getRows() {
-        return (height / px);
-    }
-
-
     public int getWidth() {
         return width;
     }
 
-
+    @Override
     public int getHeight() {
         return height;
     }
@@ -51,7 +39,7 @@ public class SimpleGfxGrid implements Grid {
 
     public int getX() {
 
-        return rect.getX();
+        return pic.getX();
     }
 
     /**
@@ -61,7 +49,7 @@ public class SimpleGfxGrid implements Grid {
      */
     public int getY() {
 
-        return rect.getY();
+        return pic.getY();
     }
 
     /**

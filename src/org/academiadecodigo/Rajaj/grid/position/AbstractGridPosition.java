@@ -11,36 +11,25 @@ public abstract class AbstractGridPosition implements GridPosition {
     private int height;
     private Grid grid;
 
-    /**
-     * Construct a new grid position at a specific column and row
-     *
-     * @param col   the column of the grid position
-     * @param row   the row of the grid position
-     * @param grid  the grid in which the position will be displayed
-     */
 
-    public AbstractGridPosition(int col, int row, Grid grid) {
-        this.width = col;
-        this.height = row;
+    public AbstractGridPosition(int width, int height, Grid grid) {
+        this.width = width;
+        this.height = height;
         this.grid = grid;
 
     }
 
-    public AbstractGridPosition() {
+    public int getWidth(){
+        return width;
     }
 
-
+    public int getHeight(){
+        return height;
+    }
     public Grid getGrid() {
         return grid;
     }
 
-
-    @Override
-    public void setPos(int width, int height) {
-        this.width = width;
-        this.height = height;
-        show();
-    }
 
 
     @Override
@@ -50,7 +39,7 @@ public abstract class AbstractGridPosition implements GridPosition {
 
     @Override
     public boolean equals(GridPosition pos) {
-        return this.width == pos.getCol() && this.height == pos.getRow() ? true : false;
+        return this.width == pos.getWidth() && this.height == pos.getHeight() ? true : false;
     }
 
 

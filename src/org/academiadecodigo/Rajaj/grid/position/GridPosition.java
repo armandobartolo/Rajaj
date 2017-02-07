@@ -7,14 +7,13 @@ import org.academiadecodigo.Rajaj.grid.GridColor;
  */
 public interface GridPosition {
 
-    public int getCol();
+    public int getWidth();
 
-    public  int getRow();
+    public  int getHeight();
 
-    public void setPos(int col, int row);
+    public void setPos(int height, int width);
 
     public void show();
-
 
     public void hide();
 

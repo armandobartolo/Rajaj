@@ -10,7 +10,6 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 public abstract class GameObject {
 
 
-
     private GridPosition gridPosition;
     private Grid grid;
     private ObjType objType;
@@ -77,7 +76,7 @@ public abstract class GameObject {
 
     public void move() {
 
-        accelerate(10);
+        accelerate(-10);
 
     }
 }

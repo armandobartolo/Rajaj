@@ -7,9 +7,9 @@ import org.academiadecodigo.Rajaj.grid.GridColor;
  */
 public enum ObjType {
 
-    TRIANGLE(GridColor.LIGHT_GREEN),
-    SQUARE(GridColor.DARK_GREEN),
-    BLANK(GridColor.NO_COLOR),
+    TRIANGLE(GridColor.LIGHTGREEN),
+    SQUARE(GridColor.DARKGREEN),
+    BLANK(GridColor.NOCOLOR),
     FINISHLINE(GridColor.BLUE),
     PLAYER(GridColor.YELLOW);
 

@@ -6,7 +6,7 @@ package org.academiadecodigo.Rajaj;
 public class Main {
     public static void main(String[] args) {
 
-        Game game = new Game();
+        Game game = new Game(1600,800);
 
 
         game.init();

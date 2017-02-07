@@ -12,4 +12,5 @@ public class Triagle extends GameObject implements Hitable{
         super(pos, ObjType.TRIANGLE);
     }
 
+
 }

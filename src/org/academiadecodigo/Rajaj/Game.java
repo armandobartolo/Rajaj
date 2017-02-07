@@ -27,7 +27,7 @@ public class Game {
 
         grid.init(8, 16);
 
-        this.player = new Player();
+        this.player = new Player(grid.);
         this.level = new GameLevel();
         this.collisionDetector = new CollisionDetector();
 
@@ -57,15 +57,15 @@ public class Game {
     public void start() {
 
         while (!winner || !crashed){
-            move();
+            allObjectsMove();
             //TODO: acrescentar thread.sleep
 
         }
         //TODO: implement collision detector
     }
 
-    private void move() {
-        grid.move();
+    private void allObjectsMove() {
+        //grid.move();
 
     }
 }
