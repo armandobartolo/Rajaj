@@ -12,11 +12,13 @@ public interface Grid {
     /**
      * Initializes the grid
      */
-    public void init(int height, int width);
+    public void init();
 
     public int getWidth();
 
     public int getHeight();
+
+    //public GridPosition makeGridPosition();
 
     public GridPosition makeGridPosition(int height, int width);
 

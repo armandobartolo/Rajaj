@@ -11,7 +11,7 @@ public interface GridPosition {
 
     public  int getHeight();
 
-    public void setPos(int height, int width);
+    //public void setPos(int height, int width);
 
     public void show();
 
