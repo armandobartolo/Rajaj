@@ -5,9 +5,12 @@ package org.academiadecodigo.Rajaj.grid;
  */
 public enum GridColor {
 
-    LIGHT_GREEN,
-    DARK_GREEN,
-    NO_COLOR,
-    YELLOW;
+    LIGHTGREEN,
+    DARKGREEN,
+    NOCOLOR,
+    YELLOW,
+    RED,
+    GREEN,
+    BLUE;
 
 }

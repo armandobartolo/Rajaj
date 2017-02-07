@@ -2,11 +2,13 @@ package org.academiadecodigo.Rajaj;
 
 import org.academiadecodigo.Rajaj.gameObjects.GameObject;
 import org.academiadecodigo.Rajaj.grid.Grid;
+import org.academiadecodigo.Rajaj.grid.GridFactory;
 
 /**
  * Created by codecadet on 05/02/17.
  */
 public class Game {
+
     private Grid grid;
     private Player player;
     private boolean winner;
@@ -15,14 +17,20 @@ public class Game {
     private CollisionDetector collisionDetector;
     private GameObject[] gameObjects;
 
+
+
+    Game(int cols, int rows){
+        grid=GridFactory.makeGrid(cols,rows);
+    }
+
     public void init() {
 
         grid.init(8, 16);
 
         this.player = new Player();
-        this.grid = new Grid();
         this.level = new GameLevel();
         this.collisionDetector = new CollisionDetector();
+
 
     }
 

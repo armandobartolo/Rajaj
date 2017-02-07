@@ -10,6 +10,7 @@ public enum ObjType {
     TRIANGLE(GridColor.LIGHT_GREEN),
     SQUARE(GridColor.DARK_GREEN),
     BLANK(GridColor.NO_COLOR),
+    FINISHLINE(GridColor.BLUE),
     PLAYER(GridColor.YELLOW);
 
 
