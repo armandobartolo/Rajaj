@@ -25,9 +25,9 @@ public class Game {
 
     public void init() {
 
-        grid.init(8, 16);
+        grid.init();
 
-        this.player = new Player(grid.);
+        this.player = new Player(grid.makeGridPosition(1000,140 ));
         this.level = new GameLevel();
         this.collisionDetector = new CollisionDetector();
 

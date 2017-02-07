@@ -5,27 +5,19 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
- * Simple graphics position
+ * Created by apm on 07-02-2017.
  */
-public class SimpleGfxGridPosition extends AbstractGridPosition {
+public class SimpleGfxGridFloor extends AbstractGridPosition {
 
     private Picture pic;
-    private Picture[] pic2= new Picture[16];
     private SimpleGfxGrid simpleGfxGrid;
 
 
-    public SimpleGfxGridPosition(int width, int height, SimpleGfxGrid grid) {
+    public SimpleGfxGridFloor(int width, int height, SimpleGfxGrid grid) {
 
         super(height,width,grid);
         this.simpleGfxGrid=grid;
-
-        pic = new Picture(140, 440, "resources/player.png");
-        for (int i = 0; i < 16; i++) {
-
-            pic2[i] = new Picture(10 + (i*70), 500, "resources/floor.png");
-
-        }
-
+        pic = new Picture(0, 0, "resources/floor.png");
         show();
     }
 
@@ -34,11 +26,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     public void show() {
         //rectangle.draw();
         pic.draw();
-        for (int i = 0; i < 16 ; i++) {
-            pic2[i].draw();
-
-        }
-
     }
 
     /**
@@ -53,6 +40,18 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     @Override
     public void moveInDirection( int distance) {
 
+        //hide();
+        /*int x = simpleGfxGrid.columnToX(getWidth()) - SimpleGfxGrid.PADDING;
+        int y = simpleGfxGrid.rowToY(getHeight()) - SimpleGfxGrid.PADDING;
+
+        super.moveInDirection(distance);
+
+        int x1 = simpleGfxGrid.columnToX(getWidth()) - SimpleGfxGrid.PADDING;
+        int y1 = simpleGfxGrid.rowToY(getHeight()) - SimpleGfxGrid.PADDING;
+
+        rectangle.translate((x1 - x), (y1 - y));
+
+        show();*/
     }
 
 

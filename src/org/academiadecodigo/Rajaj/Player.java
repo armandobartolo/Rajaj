@@ -53,12 +53,13 @@ public class Player extends GameObject implements KeyboardHandler{
 
         int key=e.getKey();
 
-        /*switch(key)
+        switch(key)
         {
             case KeyboardEvent.KEY_UP:
 
 
-        }*/
+
+        }
 
     }
 
