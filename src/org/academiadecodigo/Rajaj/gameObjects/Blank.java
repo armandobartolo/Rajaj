@@ -7,8 +7,14 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
  */
 public class Blank extends GameObject{
 
+    private int size;
+
     public Blank(GridPosition pos){
+
         super(pos, ObjType.BLANK);
     }
+
+
+
 
 }
