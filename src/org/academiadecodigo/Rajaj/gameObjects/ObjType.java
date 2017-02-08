@@ -1,26 +1,28 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
 import org.academiadecodigo.Rajaj.grid.GridColor;
+import org.academiadecodigo.Rajaj.grid.GridImage;
 
 /**
  * Created by codecadet on 05/02/17.
  */
 public enum ObjType {
 
-    TRIANGLE(GridColor.LIGHTGREEN),
-    SQUARE(GridColor.DARKGREEN),
-    BLANK(GridColor.NOCOLOR),
-    FINISHLINE(GridColor.BLUE),
-    PLAYER(GridColor.YELLOW);
+    TRIANGLE(GridImage.FIRE),
+    SQUARE(GridImage.PLATFORM),
+    BLANK(GridImage.BLANK),
+    FINISHLINE(GridImage.FINISHEDLINE),
+    PLAYER(GridImage.BEE),
+    FLOOR(GridImage.FLOOR);
 
 
-    private GridColor color;
+    private GridImage image;
 
-    ObjType(GridColor color) {
-        this.color = color;
+    ObjType(GridImage image) {
+        this.image = image;
     }
 
-    public GridColor getColor() {
-        return this.color;
+    public GridImage getColor() {
+        return this.image;
     }
 }

@@ -9,9 +9,6 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 public interface Grid {
 
 
-    /**
-     * Initializes the grid
-     */
     public void init();
 
     public int getWidth();

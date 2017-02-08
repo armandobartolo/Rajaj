@@ -88,6 +88,11 @@ public class SimpleGfxGrid implements Grid {
         return new SimpleGfxGridPosition(height, width, this );
     }
 
+    public GridPosition makeGridPosition(){
+
+        return null;
+    }
+
 
     public int rowToY(int row) {
         return (row * px) + PADDING;

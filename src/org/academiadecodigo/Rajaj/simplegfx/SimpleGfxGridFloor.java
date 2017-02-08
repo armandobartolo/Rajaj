@@ -9,7 +9,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class SimpleGfxGridFloor extends AbstractGridPosition {
 
-    private Picture pic;
+    private Picture[] pic = new Picture[60];
     private SimpleGfxGrid simpleGfxGrid;
 
 
@@ -17,15 +17,29 @@ public class SimpleGfxGridFloor extends AbstractGridPosition {
 
         super(height,width,grid);
         this.simpleGfxGrid=grid;
-        pic = new Picture(0, 0, "resources/floor.png");
+
+        for (int i = 0; i < 60; i++) {
+
+            this.pic[i] = new Picture(10 + (i*70), 500, "resources/floor.png");
+
+        }
+
         show();
     }
 
 
     @Override
     public void show() {
-        //rectangle.draw();
-        pic.draw();
+        //while(index<60)
+        //{
+        for (int i = 0; i < 16 ; i++) {
+            pic[i].draw();
+
+        }
+        // }
+
+        // moveInDirection(60);
+
     }
 
     /**
@@ -34,7 +48,7 @@ public class SimpleGfxGridFloor extends AbstractGridPosition {
     @Override
     public void hide() {
 
-        pic.delete();
+        //pic.delete();
     }
 
     @Override
