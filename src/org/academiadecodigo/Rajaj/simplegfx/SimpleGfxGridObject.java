@@ -1,24 +1,26 @@
 package org.academiadecodigo.Rajaj.simplegfx;
 
+import org.academiadecodigo.Rajaj.grid.GridImage;
 import org.academiadecodigo.Rajaj.grid.position.AbstractGridPosition;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Simple graphics position
- */
-public class SimpleGfxGridPosition extends AbstractGridPosition {
+*/
+
+public class SimpleGfxGridObject extends AbstractGridPosition {
 
     private Picture pic;
     private Picture[] pic2= new Picture[60];
     private SimpleGfxGrid simpleGfxGrid;
+    private String image = GridImage.BEE.getPath();
 
 
-    public SimpleGfxGridPosition(int width, int height, SimpleGfxGrid grid) {
+    public SimpleGfxGridObject(int width, int height, SimpleGfxGrid grid) {
 
         super(height,width,grid);
         this.simpleGfxGrid=grid;
-        this.pic = new Picture(140, 440, "resources/player.png");
         show();
     }
 
@@ -33,7 +35,7 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
 
     /**
      * @see GridPosition#hide()
-     */
+    */
     @Override
     public void hide() {
 
@@ -47,6 +49,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
             pic2[i].translate(-10,0);
 
     }
+
+
 
 
 

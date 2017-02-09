@@ -26,12 +26,20 @@ public abstract class AbstractGridPosition implements GridPosition {
         return width;
     }
 
+
     public int getHeight(){
         return height;
     }
 
+
     public Grid getGrid() {
         return grid;
+    }
+
+
+    public void setImage(GridImage image) {
+        this.image = image;
+        show();
     }
 
     @Override
@@ -43,7 +51,6 @@ public abstract class AbstractGridPosition implements GridPosition {
     public boolean equals(GridPosition pos) {
         return this.width == pos.getWidth() && this.height == pos.getHeight() ? true : false;
     }
-
 
 
     public void moveLeft(int dist) {

@@ -7,7 +7,7 @@ import org.academiadecodigo.Rajaj.grid.GridFactory;
 /**
  * Created by codecadet on 05/02/17.
  */
-public class Game {
+public class Game{
 
     private Grid grid;
     private Player player;
@@ -16,18 +16,22 @@ public class Game {
     private GameLevel level;
     private CollisionDetector collisionDetector;
     private GameObject[] gameObjects;
+    private int width;
+    private int height;
 
 
 
     Game(int width, int height){
         grid=GridFactory.makeGrid(width,height);
+        this.width=width;
+        this.height=height;
     }
 
     public void init() {
 
         grid.init();
 
-        this.player = new Player(grid.makeGridPosition(1000,140 ));
+        this.player = new Player(grid.makeGridPosition(width,height));
         this.level = new GameLevel();
         this.collisionDetector = new CollisionDetector();
 

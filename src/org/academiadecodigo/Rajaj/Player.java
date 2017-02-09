@@ -58,7 +58,6 @@ public class Player extends GameObject implements KeyboardHandler{
             case KeyboardEvent.KEY_UP:
 
 
-
         }
 
     }
