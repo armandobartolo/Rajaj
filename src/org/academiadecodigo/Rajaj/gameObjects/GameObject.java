@@ -24,6 +24,10 @@ public abstract class GameObject {
         this.objType = objType;
     }
 
+    public GameObject() {
+
+    }
+
     public Grid getGrid() {
         return grid;
     }
