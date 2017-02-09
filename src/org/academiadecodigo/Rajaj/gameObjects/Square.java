@@ -14,5 +14,8 @@ public class Square extends GameObject implements Hittable {
     }
 
 
-
+    @Override
+    public boolean isHittable() {
+        return true;
+    }
 }

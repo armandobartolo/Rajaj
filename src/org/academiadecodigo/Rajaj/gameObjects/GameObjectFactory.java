@@ -32,6 +32,8 @@ public class GameObjectFactory {
             case FINISHLINE:
                 gameObject = new FinishLine(grid.makeGridPosition(500, 500));
                 break;
+            case SPECIALBLANK:
+                gameObject = new SpecialBlank(grid.makeGridPosition());
             default:
                 gameObject = new Blank(grid.makeGridPosition(400,400));
 
