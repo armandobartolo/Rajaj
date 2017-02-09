@@ -1,6 +1,7 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
 import org.academiadecodigo.Rajaj.CollisionDetector;
+import org.academiadecodigo.Rajaj.Player;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 
@@ -13,6 +14,7 @@ public abstract class GameObject {
     private GridPosition gridPosition;
     private Grid grid;
     private ObjType objType;
+    private boolean crashed;
 
     // Allow direct access from subclasses
     protected CollisionDetector collisionDetector;
@@ -25,7 +27,6 @@ public abstract class GameObject {
     public Grid getGrid() {
         return grid;
     }
-
 
 
     public GridPosition getGridPosition() {
@@ -72,6 +73,13 @@ public abstract class GameObject {
             }*/
         }
 
+    }
+    public boolean isCrashed() {
+        return crashed;
+    }
+
+    public boolean setCrashed(){
+        return crashed = true;
     }
 
     public void move() {

@@ -1,5 +1,6 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
+import org.academiadecodigo.Rajaj.CollisionDetector;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 
 /**
@@ -7,7 +8,13 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
  */
 public class Floor extends GameObject {
 
-    public Floor(GridPosition pos){
+    public Floor(GridPosition pos) {
         super(pos, ObjType.FLOOR);
     }
+
+
 }
+
+
+
+

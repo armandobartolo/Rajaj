@@ -34,6 +34,8 @@ public class GameObjectFactory {
             case PLAYER:
                 gameObject = new Player(grid.makeGridPosition());
                 break;
+            case SPECIALBLANK:
+                gameObject = new SpecialBlank(grid.makeGridPosition());
             default:
                 gameObject = new Blank(grid.makeGridPosition());
 
