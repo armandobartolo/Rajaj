@@ -14,7 +14,7 @@ public class Game {
     private boolean winner;
     private boolean crashed;
     private GameLevel level;
-    private CollisionDetector collisionDetector;
+    //private CollisionDetector collisionDetector;
     private GameObject[] gameObjects;
 
 
@@ -29,7 +29,7 @@ public class Game {
 
         this.player = new Player(grid.makeGridPosition(1000,140 ));
         this.level = new GameLevel();
-        this.collisionDetector = new CollisionDetector();
+        //this.collisionDetector = new CollisionDetector();
 
 
     }
