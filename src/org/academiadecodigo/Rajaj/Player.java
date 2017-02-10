@@ -29,7 +29,9 @@ public class Player extends GameObject implements KeyboardHandler{
     }
 
     @Override
-    public void move() {}
+    public void move() {
+
+    }
 
     public void jump() {
         int initialHeight = getGridPosition().getHeight();

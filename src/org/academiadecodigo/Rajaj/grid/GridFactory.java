@@ -7,9 +7,9 @@ import org.academiadecodigo.Rajaj.simplegfx.SimpleGfxGrid;
  */
 public class GridFactory {
 
-    public static Grid makeGrid(int height, int width){
+    public static Grid makeGrid(int width, int height){
 
-        return new SimpleGfxGrid(height,width);
+        return new SimpleGfxGrid(width,height);
 
     }
 }

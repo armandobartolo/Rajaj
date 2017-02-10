@@ -17,7 +17,7 @@ public class SimpleGfxGrid implements Grid {
     private Rectangle rect;
 
 
-    public SimpleGfxGrid(int height, int width) {
+    public SimpleGfxGrid(int width, int height) {
         this.width = width;
         this.height = height;
     }
@@ -67,9 +67,9 @@ public class SimpleGfxGrid implements Grid {
     }
 
 
-    public GridPosition makeGridPosition(int height, int width, ObjType image ) {
+    public GridPosition makeGridPosition(int width, int height, ObjType image ) {
 
-        return new SimpleGfxGridObject(height, width, this , image);
+        return new SimpleGfxGridObject(width, height, this , image);
 
     }
 

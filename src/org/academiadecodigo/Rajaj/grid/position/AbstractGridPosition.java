@@ -39,13 +39,8 @@ public abstract class AbstractGridPosition implements GridPosition {
 
     @Override
     public void setImage(ObjType type) {
-        this.image=type.getImage();
+        //this.image=type.getImage();
         show();
-    }
-
-    @Override
-    public void moveInDirection(int distance) {
-
     }
 
     @Override
