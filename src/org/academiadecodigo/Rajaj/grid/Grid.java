@@ -15,8 +15,7 @@ public interface Grid {
 
     public int getHeight();
 
-    //public GridPosition makeGridPosition();
 
-    public GridPosition makeGridPosition(int height, int width);
+    public GridPosition makeGridPosition(int height, int width,);
 
 }

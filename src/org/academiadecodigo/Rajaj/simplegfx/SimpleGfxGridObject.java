@@ -17,7 +17,7 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     private String image = GridImage.BEE.getPath();
 
 
-    public SimpleGfxGridObject(int width, int height, SimpleGfxGrid grid) {
+    public SimpleGfxGridObject(int width, int height, SimpleGfxGrid grid,) {
 
         super(height,width,grid);
         this.simpleGfxGrid=grid;

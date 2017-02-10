@@ -11,4 +11,8 @@ public class SpecialBlank extends GameObject implements Hittable{
     public SpecialBlank(GridPosition pos){
         super(pos, ObjType.BLANK);
     }
+
+    public boolean isHittable(){
+        return true;
+    }
 }

@@ -13,14 +13,14 @@ public class SimpleGfxGridPlayer extends AbstractGridPosition {
     private Picture pic;
     private Picture[] pic2= new Picture[60];
     private SimpleGfxGrid simpleGfxGrid;
-    private String icon = GridImage.BEE.getPath();
+
 
 
     public SimpleGfxGridPlayer(int width, int height, SimpleGfxGrid grid) {
 
         super(height,width,grid);
         this.simpleGfxGrid=grid;
-        this.pic = new Picture(140, 440, icon);
+        this.pic = new Picture(140, 440, );
         show();
     }
 

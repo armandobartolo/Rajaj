@@ -33,7 +33,6 @@ public class Game{
 
         this.player = new Player(grid.makeGridPosition(width,height));
         this.level = new GameLevel();
-        this.collisionDetector = new CollisionDetector();
 
 
     }
