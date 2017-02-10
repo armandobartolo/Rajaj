@@ -2,6 +2,8 @@ package org.academiadecodigo.Rajaj;
 
 import org.academiadecodigo.Rajaj.gameObjects.GameObject;
 import org.academiadecodigo.Rajaj.gameObjects.GameObjectFactory;
+import org.academiadecodigo.Rajaj.gameObjects.ObjType;
+import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.GridFactory;
 
@@ -12,17 +14,40 @@ public class Game{
 
     private Grid grid;
     private Player player;
-    private boolean winner;
-    private boolean crashed;
-    private GameLevel level;
-    //private CollisionDetector collisionDetector;
-    private GameObject[] gameObjects;
-<<<<<<< HEAD
+    private int objHeight = 8;
+    private int objWidth = 17; //16 visible and 1 off canvas;
+    private GameObject[] obj= new GameObject[136];
     private int width;
     private int height;
-=======
-    private int number= 4;
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
+    private int objPixelSize = 70;
+    private int nextObj = 17; // start here and increments everu time
+
+    private int number= 16;
+
+    ObjType[] a = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK,ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] b = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.FLOOR};
+    ObjType[] c = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.FLOOR};
+    ObjType[] d = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.FLOOR};
+    ObjType[] e = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
+    ObjType[] f = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] g = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
+    ObjType[] h = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] i = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
+    ObjType[] j = {ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FINISHLINE,
+            ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FLOOR};
+    ObjType[] k = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] l = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] m = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] n = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
+
+    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, b, a, a, a, a, a, a, a, a,
+            a, a, a, a, a, a, b, b, a, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c,
+            c, c, c, a, a, a, a, a, a, a, a, a, c, c, c, a, a, a, a, a, a, a, a, a, a, c,
+            c, c, c, c, c, c, d, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c, c,
+            c, e, f, f, f, a, g, g, h, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c,
+            c, d, c, c, c, a, a, a, a, a, a, a, a, a, a, a, a, a, b, b, a, a, a, c, c, c,
+            c, c, d, e, e, e, i, h, h, h, h, a, a, a, a, a, a, a, a, a, a, a, a, a, a, b,
+            b, a, a, a, a, a, j, a, a, a, a, a, a, a, a, a, a, a, a, a, a};
 
 
 
@@ -35,35 +60,17 @@ public class Game{
     public void init() {
 
         grid.init();
+        firstObjects();
 
-<<<<<<< HEAD
-        this.player = new Player(grid.makeGridPosition(width,height));
-        this.level = new GameLevel();
-=======
-        gameObjects = new GameObject[number];
-
-        this.player = new Player(grid.makeGridPosition(140, 440));
-        this.level = new GameLevel();
+        this.player = new Player(grid.makeGridPosition(140, 440, ObjType.PLAYER));
         //this.collisionDetector = new CollisionDetector();
-<<<<<<< HEAD
 
         for (int i = 0; i < number; i++) {
 
-            gameObjects[i] = GameObjectFactory.getNewGameObject(grid);
-            //gameObjects[i].setCollisionDetector(collisionDetector);
-            gameObjects[i].setGrid(grid);
-
         }
-=======
->>>>>>> 30c2e3ba74d4deff10e2151dc90fc2a6550b5550
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
-
 
     }
 
-    public GameLevel getLevel() {
-        return level;
-    }
 
     public Grid getGrid() {
         return grid;
@@ -73,26 +80,50 @@ public class Game{
         return player;
     }
 
-    public boolean isCrashed() {
+    /*public boolean isCrashed() {
         return crashed;
     }
 
     public boolean isWinner() {
         return winner;
-    }
+    }*/
 
     public void start() {
 
-        while (!winner || !crashed){
+        /*while (!winner || !crashed){
             allObjectsMove();
             //TODO: acrescentar thread.sleep
 
-        }
+        }*/
         //TODO: implement collision detector
     }
 
     private void allObjectsMove() {
         //grid.move();
 
+    }
+
+
+    public void firstObjects(){
+        int col = 10;
+        int counter = 0;
+        for (int o = 0; o < objWidth; o++) {
+            int row = 10;
+            for (int p = 0; p < objHeight; p++) {
+                GameObjectFactory.getNewGameObject(grid, level1[o][p], col, row);
+                row += objPixelSize;
+                counter++;
+            }
+            col += objPixelSize;
+        }
+    }
+
+    public void nextObject() {
+        int row = 10;
+        for (int i = 0; i <objHeight; i++) {
+            GameObjectFactory.getNewGameObject(grid, level1[nextObj][i], 1130, row);
+            row += objPixelSize;
+        }
+        nextObj++;
     }
 }

@@ -12,13 +12,9 @@ public class SpecialBlank extends GameObject implements Hittable{
         super(pos, ObjType.BLANK);
     }
 
-<<<<<<< HEAD
+
     public boolean isHittable(){
         return true;
-=======
-    @Override
-    public boolean isHittable() {
-        return false;
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
     }
+
 }

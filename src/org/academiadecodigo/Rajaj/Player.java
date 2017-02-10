@@ -8,19 +8,13 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-import static sun.audio.AudioPlayer.player;
-
 /**
  * Created by codecadet on 05/02/17.
  */
 public class Player extends GameObject implements KeyboardHandler{
 
-<<<<<<< HEAD
-=======
     private int size;
     private CollisionDetector collisionDetector;
-
->>>>>>> 30c2e3ba74d4deff10e2151dc90fc2a6550b5550
 
     public Player(GridPosition pos){
 
@@ -66,7 +60,7 @@ public class Player extends GameObject implements KeyboardHandler{
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
-    public boolean isUnSafe(GridPosition pos) {
+    /*public boolean isUnSafe(GridPosition pos) {
 
         for (GameObject p : gameObjects) {
 
@@ -94,7 +88,7 @@ public class Player extends GameObject implements KeyboardHandler{
             }
         }
 
-    }
+    }*/
 
 
 }

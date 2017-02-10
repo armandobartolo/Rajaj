@@ -1,6 +1,7 @@
 package org.academiadecodigo.Rajaj.grid;
 
 
+import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 
 /**
@@ -15,11 +16,8 @@ public interface Grid {
 
     public int getHeight();
 
+    public GridPosition makeGridPosition(int width, int height, ObjType image);
 
-<<<<<<< HEAD
-    public GridPosition makeGridPosition(int height, int width,);
-=======
-    public GridPosition makeGridPosition(int height, int width);
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
+
 
 }

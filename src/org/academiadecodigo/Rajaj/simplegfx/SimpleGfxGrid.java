@@ -1,5 +1,6 @@
 package org.academiadecodigo.Rajaj.simplegfx;
 
+import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -65,29 +66,11 @@ public class SimpleGfxGrid implements Grid {
         return px;
     }
 
-<<<<<<< HEAD
-   /*
-    @Override
-    public GridPosition makeGridPosition() {
 
-        return new SimpleGfxGridPlayer(this);
+    public GridPosition makeGridPosition(int height, int width, ObjType image ) {
 
-    }
+        return new SimpleGfxGridObject(height, width, this , image);
 
-    /**
-     * @see Grid#makeGridPosition(int, int)
-     */
-   /**/
-
-    public GridPosition makeGridPosition(int height, int width ) {
-
-        return new SimpleGfxGridPlayer(height, width, this );
-=======
-
-    public GridPosition makeGridPosition(int height, int width ) {
-
-        return new SimpleGfxGridPosition(height, width, this );
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
     }
 
 

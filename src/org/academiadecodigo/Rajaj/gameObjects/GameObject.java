@@ -1,12 +1,8 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
-import org.academiadecodigo.Rajaj.CollisionDetector;
-import org.academiadecodigo.Rajaj.Player;
 import org.academiadecodigo.Rajaj.grid.Grid;
-import org.academiadecodigo.Rajaj.grid.GridImage;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 
-import static com.sun.tools.doclint.Entity.image;
 
 /**
  * Created by codecadet on 05/02/17.
@@ -23,11 +19,7 @@ public abstract class GameObject {
     public GameObject(GridPosition pos, ObjType objType){
         gridPosition = pos;
         this.objType = objType;
-        pos.setImage(objType.getImage());
-    }
-
-    public GameObject() {
-
+        pos.setImage(objType);
     }
 
     public Grid getGrid() {

@@ -1,8 +1,5 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
-import com.sun.corba.se.impl.ior.OldJIDLObjectKeyTemplate;
-import org.academiadecodigo.Rajaj.Player;
-import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 import org.academiadecodigo.Rajaj.grid.Grid;
 
 
@@ -11,52 +8,27 @@ import org.academiadecodigo.Rajaj.grid.Grid;
  */
 public class GameObjectFactory {
 
-    public static GameObject getNewGameObject(Grid grid) {
-
-<<<<<<< HEAD
-
-        int placement = ObjType.values().length;
-=======
-        int placement = ObjType.values().length-1;
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
-        ObjType objType = ObjType.values()[placement];
+    public static GameObject getNewGameObject(Grid grid, ObjType type,  int width, int height) {
 
         GameObject gameObject;
 
-        switch (objType) {
+        switch (type) {
             case TRIANGLE:
-<<<<<<< HEAD
-                gameObject = new Triangle(grid.makeGridPosition(70, 50));
+                gameObject = new Triangle(grid.makeGridPosition(width, height, ObjType.TRIANGLE));
                 break;
             case SQUARE:
-                gameObject = new Square(grid.makeGridPosition(490, 360));
+                gameObject = new Square(grid.makeGridPosition(width, height, ObjType.SQUARE));
                 break;
             case BLANK:
-                gameObject = new Blank(grid.makeGridPosition(0,0));
+                gameObject = new Blank(grid.makeGridPosition(width, height, ObjType.BLANK));
                 break;
             case FINISHLINE:
-                gameObject = new FinishLine(grid.makeGridPosition(500, 500));
-=======
-                gameObject = new Triangle(grid.makeGridPosition(300,449));
+                gameObject = new FinishLine(grid.makeGridPosition(width, height, ObjType.FINISHLINE));
                 break;
-            case SQUARE:
-                gameObject = new Square(grid.makeGridPosition(700, 350));
-                break;
-            case BLANK:
-                gameObject = new Blank(grid.makeGridPosition(1000,200));
-                break;
-            case FINISHLINE:
-                gameObject = new FinishLine(grid.makeGridPosition(1050, 300));
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
-                break;
-            case SPECIALBLANK:
-                gameObject = new SpecialBlank(grid.makeGridPosition(0,0));
+            case FLOOR:
+                gameObject = new Floor(grid.makeGridPosition(width,height, ObjType.FLOOR));
             default:
-<<<<<<< HEAD
-                gameObject = new Blank(grid.makeGridPosition(400,400));
-=======
-                gameObject = new Blank(grid.makeGridPosition(0,0));
->>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
+                gameObject = new Blank(grid.makeGridPosition(width,height, ObjType.BLANK));
 
         }
         return gameObject;
