@@ -15,7 +15,7 @@ public class Game {
     private boolean winner;
     private boolean crashed;
     private GameLevel level;
-    private CollisionDetector collisionDetector;
+    //private CollisionDetector collisionDetector;
     private GameObject[] gameObjects;
     private int number= 4;
 
@@ -34,6 +34,7 @@ public class Game {
         this.player = new Player(grid.makeGridPosition(140, 440));
         this.level = new GameLevel();
         //this.collisionDetector = new CollisionDetector();
+<<<<<<< HEAD
 
         for (int i = 0; i < number; i++) {
 
@@ -42,6 +43,8 @@ public class Game {
             gameObjects[i].setGrid(grid);
 
         }
+=======
+>>>>>>> 30c2e3ba74d4deff10e2151dc90fc2a6550b5550
 
 
     }

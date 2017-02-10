@@ -11,6 +11,7 @@ public enum ObjType {
     TRIANGLE(GridImage.FIRE),
     SQUARE(GridImage.PLATFORM),
     BLANK(GridImage.BLANK),
+    SPECIALBLANK(GridImage.BLANK),
     FINISHLINE(GridImage.FINISHEDLINE),
     PLAYER(GridImage.BEE),
     FLOOR(GridImage.FLOOR);
