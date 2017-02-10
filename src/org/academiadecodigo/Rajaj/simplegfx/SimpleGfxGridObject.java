@@ -37,6 +37,16 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     }
 
     @Override
+    public void moveUp() {
+
+    }
+
+    @Override
+    public void moveDown() {
+
+    }
+
+    @Override
     public void moveInDirection( int distance) {
 
            // pic2[].translate(-10,0);

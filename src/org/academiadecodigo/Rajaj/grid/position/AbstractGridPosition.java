@@ -52,14 +52,4 @@ public abstract class AbstractGridPosition implements GridPosition {
     public boolean equals(GridPosition pos) {
         return this.width == pos.getWidth() && this.height == pos.getHeight() ? true : false;
     }
-
-
-    public void moveLeft(int dist) {
-
-
-
-    }
-
-
-
 }
