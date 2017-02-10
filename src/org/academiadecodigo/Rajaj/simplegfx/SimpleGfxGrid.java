@@ -1,12 +1,9 @@
 package org.academiadecodigo.Rajaj.simplegfx;
 
-import com.sun.org.apache.regexp.internal.RE;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-
-import java.awt.*;
 
 public class SimpleGfxGrid implements Grid {
 
@@ -27,8 +24,6 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public void init() {
 
-        //rect = new Rectangle(PADDING,PADDING, height, width);
-        //rect.draw();
         pic = new Picture(PADDING, PADDING, "resources/background.png");
         pic.draw();
 
@@ -47,7 +42,7 @@ public class SimpleGfxGrid implements Grid {
 
     public int getX() {
 
-        return rect.getX();
+        return pic.getX();
     }
 
     /**
@@ -57,7 +52,7 @@ public class SimpleGfxGrid implements Grid {
      */
     public int getY() {
 
-        return rect.getY();
+        return pic.getY();
     }
 
     /**
@@ -70,11 +65,12 @@ public class SimpleGfxGrid implements Grid {
         return px;
     }
 
+<<<<<<< HEAD
    /*
     @Override
     public GridPosition makeGridPosition() {
 
-        return new SimpleGfxGridPosition(this);
+        return new SimpleGfxGridPlayer(this);
 
     }
 
@@ -85,12 +81,13 @@ public class SimpleGfxGrid implements Grid {
 
     public GridPosition makeGridPosition(int height, int width ) {
 
+        return new SimpleGfxGridPlayer(height, width, this );
+=======
+
+    public GridPosition makeGridPosition(int height, int width ) {
+
         return new SimpleGfxGridPosition(height, width, this );
-    }
-
-    public GridPosition makeGridPosition(){
-
-        return null;
+>>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
     }
 
 

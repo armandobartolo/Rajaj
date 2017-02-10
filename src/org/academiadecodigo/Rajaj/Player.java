@@ -1,6 +1,5 @@
 package org.academiadecodigo.Rajaj;
 
-import javafx.print.PageLayout;
 import org.academiadecodigo.Rajaj.gameObjects.GameObject;
 import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.GridImage;
@@ -11,9 +10,6 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.omg.CORBA.Object;
-
-import static sun.audio.AudioPlayer.player;
 
 /**
  * Created by codecadet on 05/02/17.
@@ -22,7 +18,6 @@ public class Player extends GameObject implements KeyboardHandler{
 
     private int size;
     private CollisionDetector collisionDetector;
-
 
 
     public Player(GridPosition pos){
@@ -39,8 +34,7 @@ public class Player extends GameObject implements KeyboardHandler{
     }
 
     @Override
-    public void move() {
-    }
+    public void move() {}
 
     public void jump() {
         int initialHeight = getGridPosition().getHeight();

@@ -8,7 +8,7 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
  */
 public interface Hittable {
 
-    boolean isHittable();
+    public boolean isHittable();
 
 
 }

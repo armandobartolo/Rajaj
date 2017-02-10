@@ -5,9 +5,9 @@ package org.academiadecodigo.Rajaj.grid;
  */
 public enum GridImage {
 
-    BEE("resouces/bee.png"),
+    BEE("resources/player.png"),
 
-    FIRE("resouces/fire.png"),
+    FIRE("resources/fire.png"),
 
     PLATFORM("resources/platform.png"),
 

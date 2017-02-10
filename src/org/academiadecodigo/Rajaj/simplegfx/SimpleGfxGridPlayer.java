@@ -1,5 +1,6 @@
 package org.academiadecodigo.Rajaj.simplegfx;
 
+import org.academiadecodigo.Rajaj.grid.GridImage;
 import org.academiadecodigo.Rajaj.grid.position.AbstractGridPosition;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -7,18 +8,19 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 /**
  * Simple graphics position
  */
-public class SimpleGfxGridPosition extends AbstractGridPosition {
+public class SimpleGfxGridPlayer extends AbstractGridPosition {
 
     private Picture pic;
     private Picture[] pic2= new Picture[60];
     private SimpleGfxGrid simpleGfxGrid;
 
 
-    public SimpleGfxGridPosition(int width, int height, SimpleGfxGrid grid) {
+
+    public SimpleGfxGridPlayer(int width, int height, SimpleGfxGrid grid) {
 
         super(height,width,grid);
         this.simpleGfxGrid=grid;
-        this.pic = new Picture(140, 440, "resources/player.png");
+        this.pic = new Picture(140, 440, );
         show();
     }
 
@@ -28,15 +30,11 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
 
     @Override
     public void show() {
-        //rectangle.draw();
 
         pic.draw();
 
     }
 
-    /**
-     * @see GridPosition#hide()
-     */
     @Override
     public void hide() {
 
@@ -58,6 +56,13 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
             int i=distance;
             pic.translate(-7,0);
 
+    }
+
+    @Override
+    public void setImage(GridImage image) {
+
+        super.setImage(image);
+        pic = new Picture(getWidth(), getHeight(), image.getPath());
     }
 
 
