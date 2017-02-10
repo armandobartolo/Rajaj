@@ -38,7 +38,9 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
     @Override
     public void moveUp() {
-        pic.translate(0,-7);
+        System.out.println(pic);
+//
+//        pic.translate(0,-7);
     }
 
     @Override
