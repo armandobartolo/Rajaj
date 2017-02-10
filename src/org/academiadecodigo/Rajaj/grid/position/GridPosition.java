@@ -7,9 +7,13 @@ import org.academiadecodigo.Rajaj.gameObjects.ObjType;
  */
 public interface GridPosition {
 
-    public int getWidth();
+    public double getWidth();
 
-    public  int getHeight();
+    public  double getHeight();
+
+    public double getX();
+
+    public double getY();
 
     public void setImage(ObjType image);
 
