@@ -24,8 +24,6 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public void init() {
 
-        //rect = new Rectangle(PADDING,PADDING, height, width);
-        //rect.draw();
         pic = new Picture(PADDING, PADDING, "resources/background.png");
         pic.draw();
 
@@ -67,6 +65,7 @@ public class SimpleGfxGrid implements Grid {
         return px;
     }
 
+<<<<<<< HEAD
    /*
     @Override
     public GridPosition makeGridPosition() {
@@ -83,6 +82,12 @@ public class SimpleGfxGrid implements Grid {
     public GridPosition makeGridPosition(int height, int width ) {
 
         return new SimpleGfxGridPlayer(height, width, this );
+=======
+
+    public GridPosition makeGridPosition(int height, int width ) {
+
+        return new SimpleGfxGridPosition(height, width, this );
+>>>>>>> cb0975dd1add05fa6668884ef3264e729732d162
     }
 
 

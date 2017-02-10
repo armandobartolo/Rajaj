@@ -16,7 +16,7 @@ public class CollisionDetector {
     public CollisionDetector(GameObject[] gameObject){
         this.gameObjects = gameObject;
     }
-
+/*
     public boolean isUnSafe(GridPosition pos) {
 
         for (GameObject p : gameObjects) {
@@ -46,5 +46,5 @@ public class CollisionDetector {
         }
 
     }
-
+*/
 }

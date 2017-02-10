@@ -3,7 +3,10 @@ package org.academiadecodigo.Rajaj.gameObjects;
 import org.academiadecodigo.Rajaj.CollisionDetector;
 import org.academiadecodigo.Rajaj.Player;
 import org.academiadecodigo.Rajaj.grid.Grid;
+import org.academiadecodigo.Rajaj.grid.GridImage;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
+
+import static com.sun.tools.doclint.Entity.image;
 
 /**
  * Created by codecadet on 05/02/17.
@@ -16,12 +19,11 @@ public abstract class GameObject {
     private ObjType objType;
     private boolean crashed;
 
-    // Allow direct access from subclasses
-    protected CollisionDetector collisionDetector;
 
     public GameObject(GridPosition pos, ObjType objType){
         gridPosition = pos;
         this.objType = objType;
+        pos.setImage(objType.getImage());
     }
 
     public GameObject() {
@@ -38,17 +40,10 @@ public abstract class GameObject {
         return gridPosition;
     }
 
-    public CollisionDetector getCollisionDetector() {
-        return collisionDetector;
-    }
-
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
 
-    public void setCollisionDetector(CollisionDetector collisionDetector) {
-        this.collisionDetector = collisionDetector;
-    }
 
     public GridPosition getPos() {
         return gridPosition;
@@ -56,7 +51,6 @@ public abstract class GameObject {
 
     public void accelerate(int speed) {
 
-        // Crashed cars can not accelerate
         /*if (isCrashed()) {
             return;
         }

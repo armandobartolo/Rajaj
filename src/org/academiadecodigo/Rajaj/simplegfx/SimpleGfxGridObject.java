@@ -1,5 +1,9 @@
 package org.academiadecodigo.Rajaj.simplegfx;
 
+<<<<<<< HEAD:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridObject.java
+=======
+import com.sun.org.apache.bcel.internal.generic.ObjectType;
+>>>>>>> cb0975dd1add05fa6668884ef3264e729732d162:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridPosition.java
 import org.academiadecodigo.Rajaj.grid.GridImage;
 import org.academiadecodigo.Rajaj.grid.position.AbstractGridPosition;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
@@ -12,8 +16,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class SimpleGfxGridObject extends AbstractGridPosition {
 
     private Picture pic;
-    private Picture[] pic2= new Picture[60];
     private SimpleGfxGrid simpleGfxGrid;
+<<<<<<< HEAD:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridObject.java
     private String image = GridImage.BEE.getPath();
 
 
@@ -21,21 +25,33 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
         super(height,width,grid);
         this.simpleGfxGrid=grid;
+=======
+    private ObjectType type;
+
+
+    public SimpleGfxGridPosition(int width, int height, SimpleGfxGrid grid , ObjectType type) {
+
+        super(height,width,grid);
+        this.simpleGfxGrid=grid;
+        this.type = type; // contrutor a receber imagem
+        this.pic = new Picture(width, height, type.);
+>>>>>>> cb0975dd1add05fa6668884ef3264e729732d162:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridPosition.java
         show();
     }
 
 
     @Override
     public void show() {
-        //rectangle.draw();
-
         pic.draw();
-
     }
 
+<<<<<<< HEAD:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridObject.java
     /**
      * @see GridPosition#hide()
     */
+=======
+
+>>>>>>> cb0975dd1add05fa6668884ef3264e729732d162:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridPosition.java
     @Override
     public void hide() {
 
@@ -45,13 +61,19 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     @Override
     public void moveInDirection( int distance) {
 
-            int i=distance;
-            pic2[i].translate(-10,0);
 
     }
 
+    @Override
+    public void setImage(GridImage image) {
+        super.setImage(image);
+        this.image = image;
+
+<<<<<<< HEAD:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridObject.java
 
 
 
-
+=======
+    }
+>>>>>>> cb0975dd1add05fa6668884ef3264e729732d162:src/org/academiadecodigo/Rajaj/simplegfx/SimpleGfxGridPosition.java
 }

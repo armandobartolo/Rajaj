@@ -15,8 +15,12 @@ import static sun.audio.AudioPlayer.player;
  */
 public class Player extends GameObject implements KeyboardHandler{
 
+<<<<<<< HEAD
+=======
     private int size;
+    private CollisionDetector collisionDetector;
 
+>>>>>>> 30c2e3ba74d4deff10e2151dc90fc2a6550b5550
 
     public Player(GridPosition pos){
 
@@ -43,10 +47,6 @@ public class Player extends GameObject implements KeyboardHandler{
     }
 
 
-
-    public int getSize() {
-        return size;
-    }
     @Override
     public void keyPressed(KeyboardEvent e) {
 
@@ -66,7 +66,35 @@ public class Player extends GameObject implements KeyboardHandler{
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
+    public boolean isUnSafe(GridPosition pos) {
 
+        for (GameObject p : gameObjects) {
+
+            if (p.getPos()!= pos && p.getPos().equals(pos)) {
+                return true;
+            }
+
+        }
+
+        return false;
+
+    }
+
+    public void check(GameObject gameObject) {
+
+        for (GameObject player : gameObjects) {
+
+            // No point in checking collisions with self
+            if (player == gameObject) {
+                continue;
+            }
+
+            if (player.getPos().equals(player.getPos())) {
+                player.setCrashed();
+            }
+        }
+
+    }
 
 
 }
