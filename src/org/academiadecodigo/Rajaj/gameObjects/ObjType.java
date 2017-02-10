@@ -7,7 +7,7 @@ public enum ObjType {
 
     TRIANGLE("resources/flame1.png"),
     SQUARE("resources/platform.png"),
-    BLANK("resources/flame2.png"),
+    BLANK("resources/blank.png"),
     //SPECIALBLANK(""),
     FINISHLINE("resources/finishline.png"),
     PLAYER("resources/player.png"),
