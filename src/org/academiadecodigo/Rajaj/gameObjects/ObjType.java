@@ -22,7 +22,7 @@ public enum ObjType {
         this.image = image;
     }
 
-    public GridImage getColor() {
+    public GridImage getImage() {
         return this.image;
     }
 }

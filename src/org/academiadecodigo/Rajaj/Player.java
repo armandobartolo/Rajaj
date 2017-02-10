@@ -15,8 +15,6 @@ import static sun.audio.AudioPlayer.player;
  */
 public class Player extends GameObject implements KeyboardHandler{
 
-    private int size;
-
 
     public Player(GridPosition pos){
 
@@ -43,10 +41,6 @@ public class Player extends GameObject implements KeyboardHandler{
     }
 
 
-
-    public int getSize() {
-        return size;
-    }
     @Override
     public void keyPressed(KeyboardEvent e) {
 

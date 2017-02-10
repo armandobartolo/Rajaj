@@ -1,6 +1,6 @@
 package org.academiadecodigo.Rajaj.grid.position;
 
-import org.academiadecodigo.Rajaj.grid.GridColor;
+import org.academiadecodigo.Rajaj.grid.GridImage;
 
 /**
  * Created by codecadet on 05/02/17.
@@ -12,6 +12,7 @@ public interface GridPosition {
     public  int getHeight();
 
     //public void setPos(int height, int width);
+    public void setImage(GridImage image);
 
     public void show();
 

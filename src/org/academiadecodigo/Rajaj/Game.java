@@ -1,6 +1,7 @@
 package org.academiadecodigo.Rajaj;
 
 import org.academiadecodigo.Rajaj.gameObjects.GameObject;
+import org.academiadecodigo.Rajaj.gameObjects.GameObjectFactory;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.GridFactory;
 
@@ -16,6 +17,7 @@ public class Game {
     private GameLevel level;
     private CollisionDetector collisionDetector;
     private GameObject[] gameObjects;
+    private int number= 4;
 
 
 
@@ -27,9 +29,19 @@ public class Game {
 
         grid.init();
 
-        this.player = new Player(grid.makeGridPosition(1000,140 ));
+        gameObjects = new GameObject[number];
+
+        this.player = new Player(grid.makeGridPosition(140, 440));
         this.level = new GameLevel();
-        this.collisionDetector = new CollisionDetector();
+        //this.collisionDetector = new CollisionDetector();
+
+        for (int i = 0; i < number; i++) {
+
+            gameObjects[i] = GameObjectFactory.getNewGameObject(grid);
+            //gameObjects[i].setCollisionDetector(collisionDetector);
+            gameObjects[i].setGrid(grid);
+
+        }
 
 
     }

@@ -11,4 +11,6 @@ public class Blank extends GameObject{
         super(pos, ObjType.BLANK);
     }
 
+
+
 }
