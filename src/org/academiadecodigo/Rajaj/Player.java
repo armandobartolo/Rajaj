@@ -34,8 +34,8 @@ public class Player extends GameObject implements KeyboardHandler{
     }
 
     public void jump() {
-        int initialHeight = getGridPosition().getHeight();
-        int actualHeight = getGridPosition().getHeight();
+        double initialHeight = getGridPosition().getHeight();
+        double actualHeight = getGridPosition().getHeight();
         while (actualHeight - initialHeight != 170) {
             System.out.println("here");
             getGridPosition().moveUp();
