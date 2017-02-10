@@ -41,29 +41,7 @@ public abstract class GameObject {
         return gridPosition;
     }
 
-    public void accelerate(int speed) {
 
-        /*if (isCrashed()) {
-            return;
-        }
-
-        GridDirection newDirection = direction;
-
-        // Perform a U turn if we have bumped against the wall
-        if (isHittingWall()) {
-            newDirection = direction.oppositeDirection();
-        }*/
-
-        // Accelerate in the choosen direction
-        for (int i = 0; i < speed; i++) {
-            getPos().moveInDirection(1);
-            /*if (collisionDetector.isUnSafe(getPos())) {
-                crash();
-                break;
-            }*/
-        }
-
-    }
     public boolean isCrashed() {
         return crashed;
     }
@@ -74,7 +52,8 @@ public abstract class GameObject {
 
     public void move() {
 
-        accelerate(-7);
+        getPos().move();
+
 
     }
 

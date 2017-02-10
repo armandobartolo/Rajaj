@@ -25,7 +25,7 @@ public interface GridPosition {
 
     void moveDown();
 
-    public void moveInDirection(int distance);
+    public void move();
 
     public boolean equals(GridPosition position);
 

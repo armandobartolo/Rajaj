@@ -8,7 +8,7 @@ import org.academiadecodigo.Rajaj.grid.Grid;
  */
 public class GameObjectFactory {
 
-    public static GameObject getNewGameObject(Grid grid, ObjType type,  int width, int height) {
+    public static GameObject getNewGameObject(Grid grid,int width, int height,ObjType type) {
 
         GameObject gameObject;
 
@@ -27,6 +27,7 @@ public class GameObjectFactory {
                 break;
             case FLOOR:
                 gameObject = new Floor(grid.makeGridPosition(width,height, ObjType.FLOOR));
+                break;
             default:
                 gameObject = new Blank(grid.makeGridPosition(width,height, ObjType.BLANK));
 
