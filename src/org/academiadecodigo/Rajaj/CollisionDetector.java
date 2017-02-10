@@ -16,6 +16,11 @@ public class CollisionDetector {
     public CollisionDetector(GameObject[] gameObject){
         this.gameObjects = gameObject;
     }
+    private boolean onTheFloor;
+
+    public boolean isOnTheFloor(){
+        return onTheFloor;
+    }
 /*
     public boolean isUnSafe(GridPosition pos) {
 

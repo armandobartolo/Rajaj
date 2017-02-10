@@ -74,9 +74,11 @@ public abstract class GameObject {
 
     public void move() {
 
-        accelerate(-10);
+        accelerate(-7);
 
     }
+
+
 }
 
 
