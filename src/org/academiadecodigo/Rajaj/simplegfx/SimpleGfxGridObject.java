@@ -50,12 +50,7 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     public void move() {
 
         pic.delete();
-
-        System.out.println("before: "+ pic.getX() + " : " + pic.getY());
-
         pic.translate(-10, 0);
-
-        System.out.println("after " + pic.getX() + " : " + pic.getY());
 
         pic.draw();
     }

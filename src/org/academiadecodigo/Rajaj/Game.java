@@ -44,7 +44,7 @@ public class Game {
     ObjType[] m = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] n = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
 
-    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, b, a, a, a, a, a, a, a, a,
+    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, b, a, a, a, a, a, a, a, a,
             a, a, a, a, a, a, b, b, a, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c,
             c, c, c, a, a, a, a, a, a, a, a, a, c, c, c, a, a, a, a, a, a, a, a, a, a, c,
             c, c, c, c, c, c, d, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c, c,
@@ -92,7 +92,8 @@ public class Game {
 
         while (true) {
 
-            if (moveCounter % 10 == 0) {
+
+            if (moveCounter % 7 == 0) {
               nextObject();
             }
 
@@ -102,7 +103,7 @@ public class Game {
 
             }
             try {
-                Thread.sleep(20);
+                Thread.sleep(40);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
