@@ -22,6 +22,9 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
         show();
     }
 
+    public Picture getPic() {
+        return pic;
+    }
 
     @Override
     public void show() {
@@ -41,10 +44,19 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     }
 
     @Override
+    public void moveUp() {
+        pic.translate(0, -14);
+    }
+    @Override
+    public void moveDown() {
+        pic.translate(0, 7);
+    }
+
+    @Override
     public void moveInDirection( int distance) {
 
             int i=distance;
-            pic2[i].translate(-10,0);
+            pic.translate(-7,0);
 
     }
 

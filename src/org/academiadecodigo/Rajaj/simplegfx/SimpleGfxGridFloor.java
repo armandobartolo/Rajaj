@@ -52,6 +52,16 @@ public class SimpleGfxGridFloor extends AbstractGridPosition {
     }
 
     @Override
+    public void moveUp() {
+
+    }
+
+    @Override
+    public void moveDown() {
+
+    }
+
+    @Override
     public void moveInDirection( int distance) {
 
         //hide();
