@@ -28,6 +28,9 @@ public class GameObjectFactory {
             case FLOOR:
                 gameObject = new Floor(grid.makeGridPosition(width,height, ObjType.FLOOR));
                 break;
+            case SPECIALBLANK:
+                gameObject = new SpecialBlank(grid.makeGridPosition(width,height, ObjType.SPECIALBLANK));
+                break;
             default:
                 gameObject = new Blank(grid.makeGridPosition(width,height, ObjType.BLANK));
 

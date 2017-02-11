@@ -25,6 +25,7 @@ public class Game {
     private int nextObj = 17; // start here and increments everu time
     private int moveCounter;
     private List<GameObject> list = new LinkedList<>();
+    private CollisionDetector collisionDetector;
 
     private int number = 16;
 
@@ -52,6 +53,7 @@ public class Game {
             c, d, c, c, c, a, a, a, a, a, a, a, a, a, a, a, a, a, b, b, a, a, a, c, c, c,
             c, c, d, e, e, e, i, h, h, h, h, a, a, a, a, a, a, a, a, a, a, a, a, a, a, b,
             b, a, a, a, a, a, j, a, a, a, a, a, a, a, a, a, a, a, a, a, a};
+
 
 
     Game(int width, int height) {

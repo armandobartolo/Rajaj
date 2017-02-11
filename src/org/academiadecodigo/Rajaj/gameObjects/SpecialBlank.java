@@ -7,9 +7,10 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
  */
 public class SpecialBlank extends GameObject implements Hittable{
 
+    private int size;
 
     public SpecialBlank(GridPosition pos){
-        super(pos, ObjType.BLANK);
+        super(pos, ObjType.SPECIALBLANK);
     }
 
 

@@ -59,7 +59,7 @@ public class CollisionDetector {
         double th = gameObject.getGridPosition().getHeight() + ty;
 
         if ((  (x>=tx && x<=tw) && (y>=ty && y<=th))){
-            //TODO: metodo que vai detectar a posição do objecto
+            //TODO: metodo que vai detectar a colisao entre dois objectos
 
             return true;
         }
