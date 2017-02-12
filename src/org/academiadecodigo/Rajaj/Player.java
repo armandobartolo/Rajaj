@@ -23,6 +23,7 @@ public class Player extends GameObject implements KeyboardHandler {
 
     public Player(GridPosition pos) {
 
+
         super(pos, ObjType.PLAYER);
 
         Keyboard k = new Keyboard(this);
@@ -30,6 +31,7 @@ public class Player extends GameObject implements KeyboardHandler {
         event.setKey(KeyboardEvent.KEY_SPACE);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
+
 
     }
 

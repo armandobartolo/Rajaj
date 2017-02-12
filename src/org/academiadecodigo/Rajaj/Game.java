@@ -19,15 +19,12 @@ public class Game {
     private Player player;
     private int objHeight = 8;
     private int objWidth = 17; //16 visible and 1 off canvas;
-    private int width;
-    private int height;
     private int objPixelSize = 70;
     private int nextObj = 17; // start here and increments everu time
     private int moveCounter;
     private LinkedList<GameObject> list = new LinkedList<>();
     private CollisionDetector collisionDetector;
-
-    private int number = 16;
+    
 
     ObjType[] a = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] b = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.FLOOR};
@@ -58,8 +55,7 @@ public class Game {
 
     Game(int width, int height) {
         grid = GridFactory.makeGrid(width, height);
-        this.width = width;
-        this.height = height;
+
     }
 
     public void init() {
@@ -67,7 +63,7 @@ public class Game {
         grid.init();
         firstObjects();
 
-        this.player = new Player(grid.makeGridPosition(150, 440, ObjType.PLAYER));
+        this.player = new Player(grid.makeGridPosition(150, -80, ObjType.PLAYER));
         this.collisionDetector = new CollisionDetector(list, player);
 
     }
@@ -77,17 +73,7 @@ public class Game {
         return grid;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
 
-    /*public boolean isCrashed() {
-        return crashed;
-    }
-
-    public boolean isWinner() {
-        return winner;
-    }*/
 
 
     public void start() {
@@ -109,38 +95,32 @@ public class Game {
                 moveCounter++;
 
             }
-            player.move();
+
+                player.move();
+
             if (!collisionDetector.isOnTheFloor()) {
                 player.gravity();
             }
 
 
-
-            try {
+          /* try {
                 Thread.sleep(30);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
-            }
+            }*/
 
         }
-        /*while (!winner || !crashed){
-            allObjectsMove();
-            //TODO: acrescentar thread.sleep
 
-        }*/
-        //TODO: implement collision detector
     }
 
 
     public void firstObjects() {
         int col = 10;
-        int counter = 0;
         for (int o = 0; o < objHeight; o++) {
             int row = 10;
             for (int p = 0; p < objWidth; p++) {
                 list.add(GameObjectFactory.getNewGameObject(grid,row, col, level1[p][o]));
                 row += objPixelSize;
-                counter++;
             }
             col += objPixelSize;
         }
@@ -152,6 +132,8 @@ public class Game {
             row += objPixelSize;
             list.add(GameObjectFactory.getNewGameObject(grid, 1130, row-70, level1[nextObj][i]));
             list.remove(0).getGridPosition().hide();
+
+
         }
         nextObj++;
     }

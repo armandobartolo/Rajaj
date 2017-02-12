@@ -21,11 +21,11 @@ public class CollisionDetector {
 
     /**
 
-     tX - - - - - tW
+     pX - - - - - pW
      |           |
-     |     T     |
+     |     P     |
      |           |
-     tY - - - - - tH
+     pY - - - - - pH
 
      rX - - - - - - - rW
      |               |
@@ -77,7 +77,7 @@ public class CollisionDetector {
 
         for (GameObject g : list) {
 
-            if (g instanceof Blank || g instanceof SpecialBlank || g instanceof Triangle || g instanceof Square) {
+            if (g instanceof Blank || g instanceof SpecialBlank || g instanceof Triangle || g instanceof FinishLine) {
                 continue;
             }
 
@@ -97,7 +97,7 @@ public class CollisionDetector {
             ph += py;
 
 
-            if (gh - 70 < ph && gh - 70 > py) {
+            if (gy <= ph && px >= gx && px <= gw) {
                 return true;
             }
         }
