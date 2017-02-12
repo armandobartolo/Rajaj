@@ -3,12 +3,10 @@ package org.academiadecodigo.Rajaj;
 import org.academiadecodigo.Rajaj.gameObjects.GameObject;
 import org.academiadecodigo.Rajaj.gameObjects.GameObjectFactory;
 import org.academiadecodigo.Rajaj.gameObjects.ObjType;
-import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.GridFactory;
 
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by codecadet on 05/02/17.
@@ -24,7 +22,7 @@ public class Game {
     private int moveCounter;
     private LinkedList<GameObject> list = new LinkedList<>();
     private CollisionDetector collisionDetector;
-    
+    private Sound sound;
 
     ObjType[] a = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] b = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.FLOOR};
@@ -65,6 +63,8 @@ public class Game {
 
         this.player = new Player(grid.makeGridPosition(150, -80, ObjType.PLAYER));
         this.collisionDetector = new CollisionDetector(list, player);
+        this.sound = new Sound("/resources/indianaMusic.wav");
+        sound.play();
 
     }
 
@@ -80,6 +80,8 @@ public class Game {
 
 
         while (true) {
+
+
 
             if (collisionDetector.isCrashed()) {
                break;

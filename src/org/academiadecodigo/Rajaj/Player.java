@@ -1,6 +1,5 @@
 package org.academiadecodigo.Rajaj;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.academiadecodigo.Rajaj.gameObjects.GameObject;
 import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;

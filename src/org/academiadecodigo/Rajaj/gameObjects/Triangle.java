@@ -1,6 +1,5 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
-import org.academiadecodigo.Rajaj.Player;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 
 
