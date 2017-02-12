@@ -2,6 +2,7 @@ package org.academiadecodigo.Rajaj.simplegfx;
 
 import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.Grid;
+import org.academiadecodigo.Rajaj.grid.GridImage;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
@@ -23,9 +24,9 @@ public class SimpleGfxGrid implements Grid {
     }
 
     @Override
-    public void init() {
+    public void init(GridImage image) {
 
-        pic = new Picture(PADDING, PADDING, "resources/background.png");
+        pic = new Picture(PADDING, PADDING, image.getpath());
         pic.draw();
 
     }
@@ -56,6 +57,11 @@ public class SimpleGfxGrid implements Grid {
         return pic.getY();
     }
 
+
+    public void delete() {
+        pic.delete();
+    }
+
     /**
      * Obtains the pixel width and height of a grid position
      *
@@ -67,9 +73,9 @@ public class SimpleGfxGrid implements Grid {
     }
 
 
-    public GridPosition makeGridPosition(int width, int height, ObjType image ) {
+    public GridPosition makeGridPosition(int width, int height, ObjType image) {
 
-        return new SimpleGfxGridObject(width, height, this , image);
+        return new SimpleGfxGridObject(width, height, this, image);
 
     }
 
@@ -83,4 +89,6 @@ public class SimpleGfxGrid implements Grid {
         return (column * px) + PADDING;
 
     }
+
+
 }

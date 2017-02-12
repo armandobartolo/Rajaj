@@ -1,26 +1,29 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
+import org.academiadecodigo.Rajaj.grid.Grid;
+import org.academiadecodigo.Rajaj.grid.GridImage;
+
 /**
  * Created by codecadet on 05/02/17.
  */
 public enum ObjType {
 
-    TRIANGLE("resources/flame1.png"),
-    SQUARE("resources/platform.png"),
-    BLANK("resources/blank.png"),
-    SPECIALBLANK("resources/blank.png"),
-    FINISHLINE("resources/finishline.png"),
-    PLAYER("resources/bee.png"),
-    FLOOR("resources/floor.png");
+    TRIANGLE(GridImage.FLAME),
+    SQUARE(GridImage.PLATFORM),
+    BLANK(GridImage.BLANK),
+    SPECIALBLANK(GridImage.BLANK),
+    FINISHLINE(GridImage.FINISHLINE),
+    PLAYER(GridImage.BEE),
+    FLOOR(GridImage.FLOOR);
 
 
-    private String path;
+    private GridImage image;
 
-    ObjType(String path) {
-        this.path = path;
+    ObjType(GridImage image) {
+        this.image = image;
     }
 
-    public String getImage() {
-        return path;
+    public GridImage getImage() {
+        return image;
     }
 }

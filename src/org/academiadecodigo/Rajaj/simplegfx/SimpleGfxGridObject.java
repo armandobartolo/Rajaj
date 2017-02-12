@@ -1,7 +1,9 @@
 package org.academiadecodigo.Rajaj.simplegfx;
 
 import org.academiadecodigo.Rajaj.gameObjects.ObjType;
+import org.academiadecodigo.Rajaj.grid.GridImage;
 import org.academiadecodigo.Rajaj.grid.position.AbstractGridPosition;
+import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
@@ -18,7 +20,7 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
         super(width,height,grid);
         this.simpleGfxGrid=grid;
-        this.pic = new Picture(width, height, image.getImage());
+        this.pic = new Picture(width, height, image.getImage().getpath());
         show();
     }
 
@@ -39,8 +41,9 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
     @Override
     public void hide() {
-
         pic.delete();
+
+
     }
 
     @Override
@@ -81,7 +84,7 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     @Override
     public void setImage(ObjType image) {
         super.setImage(image);
-        pic = new Picture(getWidth(), getHeight(), image.getImage());
+        pic = new Picture(getWidth(), getHeight(), image.getImage().getpath());
     }
 
 

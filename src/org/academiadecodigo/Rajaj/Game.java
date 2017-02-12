@@ -5,24 +5,31 @@ import org.academiadecodigo.Rajaj.gameObjects.GameObjectFactory;
 import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.GridFactory;
+import org.academiadecodigo.Rajaj.grid.GridImage;
+import org.academiadecodigo.simplegraphics.mouse.Mouse;
+import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
+import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
+import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 
 import java.util.LinkedList;
 
 /**
  * Created by codecadet on 05/02/17.
  */
-public class Game {
+public class Game implements MouseHandler {
 
-    private Grid grid;
+    private Grid grid, grid1;
     private Player player;
     private int objHeight = 8;
     private int objWidth = 17; //16 visible and 1 off canvas;
+    private int width;
     private int objPixelSize = 70;
     private int nextObj = 17; // start here and increments everu time
     private int moveCounter;
     private LinkedList<GameObject> list = new LinkedList<>();
     private CollisionDetector collisionDetector;
     private Sound sound;
+    private boolean mousevent;
 
     ObjType[] a = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] b = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.FLOOR};
@@ -50,21 +57,30 @@ public class Game {
             b, a, a, a, a, a, j, a, a, a, a, a, a, a, a, a, a, a, a, a, a};
 
 
-
     Game(int width, int height) {
         grid = GridFactory.makeGrid(width, height);
+        grid1 = GridFactory.makeGrid(width, height);
+        this.sound = new Sound("/resources/indianaMusic.wav");
+        this.width=width;
 
     }
 
     public void init() {
 
-        grid.init();
+        Mouse m =new Mouse(this);
+        m.addEventListener(MouseEventType.MOUSE_CLICKED);
+
+        while (!mousevent) {
+            grid.init(GridImage.MENU);
+        }
+        grid.delete();
+        sound.play();
+        grid.init(GridImage.BACKGROUND);
         firstObjects();
 
         this.player = new Player(grid.makeGridPosition(150, -80, ObjType.PLAYER));
         this.collisionDetector = new CollisionDetector(list, player);
-        this.sound = new Sound("/resources/indianaMusic.wav");
-        sound.play();
+
 
     }
 
@@ -74,21 +90,18 @@ public class Game {
     }
 
 
-
-
     public void start() {
 
 
         while (true) {
 
 
-
             if (collisionDetector.isCrashed()) {
-               break;
+                break;
             }
 
             if (moveCounter % 7 == 0) {
-              nextObject();
+                 nextObject();
             }
 
 
@@ -98,7 +111,7 @@ public class Game {
 
             }
 
-                player.move();
+            player.move();
 
             if (!collisionDetector.isOnTheFloor()) {
                 player.gravity();
@@ -121,7 +134,7 @@ public class Game {
         for (int o = 0; o < objHeight; o++) {
             int row = 10;
             for (int p = 0; p < objWidth; p++) {
-                list.add(GameObjectFactory.getNewGameObject(grid,row, col, level1[p][o]));
+                list.add(GameObjectFactory.getNewGameObject(grid, row, col, level1[p][o]));
                 row += objPixelSize;
             }
             col += objPixelSize;
@@ -132,11 +145,22 @@ public class Game {
         int row = 10;
         for (int i = 0; i < objHeight; i++) {
             row += objPixelSize;
-            list.add(GameObjectFactory.getNewGameObject(grid, 1130, row-70, level1[nextObj][i]));
-            list.remove(0).getGridPosition().hide();
-
+            list.add(GameObjectFactory.getNewGameObject(grid, width, row - 70, level1[nextObj][i]));
+            list.removeFirst().getGridPosition().hide();
 
         }
         nextObj++;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent mouseEvent) {
+        if (mouseEvent.getY() > 250 && mouseEvent.getX() > 400 && mouseEvent.getX() < 720) {
+            mousevent = true;
+        }
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent mouseEvent) {
+
     }
 }
