@@ -10,7 +10,7 @@ public enum ObjType {
     BLANK("resources/blank.png"),
     SPECIALBLANK("resources/blank.png"),
     FINISHLINE("resources/finishline.png"),
-    PLAYER("resources/player.png"),
+    PLAYER("resources/bee.png"),
     FLOOR("resources/floor.png");
 
 

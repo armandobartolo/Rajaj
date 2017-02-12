@@ -1,5 +1,6 @@
 package org.academiadecodigo.Rajaj;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import org.academiadecodigo.Rajaj.gameObjects.GameObject;
 import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.position.GridPosition;
@@ -15,6 +16,8 @@ public class Player extends GameObject implements KeyboardHandler{
 
     private int size;
     private CollisionDetector collisionDetector;
+    private boolean jumping;
+    // TODO: 11/02/17 Add get X and Y 
 
     public Player(GridPosition pos){
 
@@ -30,12 +33,17 @@ public class Player extends GameObject implements KeyboardHandler{
 
     @Override
     public void move() {
+        if (jumping) {
+            jump();
+        }
 
+        jumping = false;
+        gravity();
     }
 
     public void jump() {
-        double initialHeight = getGridPosition().getHeight();
-        double actualHeight = getGridPosition().getHeight();
+        double initialHeight = getGridPosition().getY();
+        double actualHeight = getGridPosition().getY();
         while (actualHeight - initialHeight == 170) {
             System.out.println("inicial" + initialHeight + "actual" + actualHeight + "here");
             getGridPosition().moveUp();
@@ -56,7 +64,7 @@ public class Player extends GameObject implements KeyboardHandler{
     @Override
     public void keyPressed(KeyboardEvent e) {
         System.out.println("Jump!");
-            jump();
+        jumping = true;
     }
 
     @Override

@@ -7,7 +7,7 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 /**
  * Created by codecadet on 05/02/17.
  */
-public class Triangle extends GameObject implements Hittable {
+public class Triangle extends GameObject{
 
 
     public Triangle(GridPosition pos){
@@ -15,11 +15,6 @@ public class Triangle extends GameObject implements Hittable {
     }
 
     private int size;
-
-    @Override
-    public boolean isHittable() {
-        return false;
-    }
 
 
 }

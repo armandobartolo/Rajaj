@@ -1,29 +1,30 @@
 package org.academiadecodigo.Rajaj;
 
-import org.academiadecodigo.Rajaj.gameObjects.GameObject;
+import org.academiadecodigo.Rajaj.gameObjects.*;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by codecadet on 05/02/17.
  */
 public class CollisionDetector {
 
-    private GameObject[] gameObjects;
 
+    private LinkedList<GameObject> list;
+    private Player player;
     double x;
     double y;
     double width;
     double height;
 
-    public GameObject[] getGameObjects() {
-        return gameObjects;
-    }
-    public CollisionDetector(GameObject[] gameObject){
-        this.gameObjects = gameObject;
-    }
-
     private boolean onTheFloor;
     private boolean isWinner;
-    private boolean isCrashed;
+
+    public CollisionDetector(LinkedList<GameObject> list, Player player) {
+        this.list = list;
+        this.player = player;
+    }
 
     public boolean isOnTheFloor(){
         return onTheFloor;
@@ -51,22 +52,55 @@ public class CollisionDetector {
 
 
     //ESTE E O SEGUINTE SÃO OS QUE IMPORTAM
-    public boolean isCrashed(GameObject gameObject, double x, double y){
+    public boolean isCrashed() {
+        System.out.println("ilugwafu");
 
-        double tx = gameObject.getGridPosition().getX();
-        double ty = gameObject.getGridPosition().getY();
-        double tw = gameObject.getGridPosition().getWidth() + tx;
-        double th = gameObject.getGridPosition().getHeight() + ty;
+        for (GameObject g : list) {
 
-        if ((  (x>=tx && x<=tw) && (y>=ty && y<=th))){
-            //TODO: metodo que vai detectar a colisao entre dois objectos
+            if (g instanceof Blank || g instanceof SpecialBlank || g instanceof Floor) {
+                continue;
+            }
+           // System.out.println(g);
 
-            return true;
+
+
+            double pw = 70;
+            double ph = 70;
+            double gw = 70;
+            double gh = 70;
+
+            double px = player.getGridPosition().getX();
+            double py = player.getGridPosition().getY();
+            double gx = g.getGridPosition().getX();
+            double gy = g.getGridPosition().getY();
+            gw += gx;
+            gh += gy;
+            pw += px;
+            ph += py;
+
+
+            //      overflow || intersect
+
+            /* if (gw + 70 > px &&
+                    gh > py + 70 &&
+                    pw > gx &&
+                    ph > gy) {
+
+                System.out.println("aqui");
+
+                return true;
+            } */
+            System.out.println("gx: " + gx + " px: " + px + " pw: " + pw);
+            if (gx > px && gx < pw) {
+                System.out.println("Inside collision");
+                return true;
+            }
         }
 
+        System.out.println("returning false ------------------------------");
         return false;
-
     }
+
 
 
 

@@ -5,7 +5,7 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 /**
  * Created by codecadet on 05/02/17.
  */
-public class FinishLine extends GameObject implements Hittable{
+public class FinishLine extends GameObject{
 
     private int size;
 
@@ -13,13 +13,4 @@ public class FinishLine extends GameObject implements Hittable{
 
         super(pos, ObjType.FINISHLINE);
     }
-
-
-
-    @Override
-    public boolean isHittable() {
-        return false;
-    }
-
-
 }

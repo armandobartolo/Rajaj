@@ -24,7 +24,7 @@ public class Game {
     private int objPixelSize = 70;
     private int nextObj = 17; // start here and increments everu time
     private int moveCounter;
-    private List<GameObject> list = new LinkedList<>();
+    private LinkedList<GameObject> list = new LinkedList<>();
     private CollisionDetector collisionDetector;
 
     private int number = 16;
@@ -67,8 +67,8 @@ public class Game {
         grid.init();
         firstObjects();
 
-        this.player = new Player(grid.makeGridPosition(140, 440, ObjType.PLAYER));
-        //this.collisionDetector = new CollisionDetector();
+        this.player = new Player(grid.makeGridPosition(150, 440, ObjType.PLAYER));
+        this.collisionDetector = new CollisionDetector(list, player);
 
     }
 
@@ -92,8 +92,12 @@ public class Game {
 
     public void start() {
 
+
         while (true) {
 
+            if (collisionDetector.isCrashed()) {
+               break;
+            }
 
             if (moveCounter % 7 == 0) {
               nextObject();
@@ -104,12 +108,19 @@ public class Game {
                 moveCounter++;
 
             }
+
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+            /*
             try {
                 Thread.sleep(40);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
-
+*/
         }
         /*while (!winner || !crashed){
             allObjectsMove();
