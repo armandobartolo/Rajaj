@@ -110,19 +110,18 @@ public class Game {
 
             }
             player.move();
+            if (!collisionDetector.isOnTheFloor()) {
+                player.gravity();
+            }
+
+
 
             try {
                 Thread.sleep(30);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
-            /*
-            try {
-                Thread.sleep(40);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }
-*/
+
         }
         /*while (!winner || !crashed){
             allObjectsMove();
