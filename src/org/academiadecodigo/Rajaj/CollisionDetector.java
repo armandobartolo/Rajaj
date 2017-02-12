@@ -76,6 +76,8 @@ public class CollisionDetector {
             gh += gy;
             pw += px;
             ph += py;
+            System.out.println("player x, w, h, y " + px + " " + pw + " " + ph + " " + py);
+            System.out.println("gameobj x, w, h, y " + gx + " " + gw + " " + gh + " " + gy);
 
 
             //      overflow || intersect
@@ -89,7 +91,7 @@ public class CollisionDetector {
 
                 return true;
             } */
-            if (gx > px && gx < pw && gy > ph && gy > py) {
+            if (gx > px && gx < pw && gh < ph && gh > py) {
                 return true;
             }
         }
