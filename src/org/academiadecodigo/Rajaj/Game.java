@@ -103,11 +103,13 @@ public class Game {
               nextObject();
             }
 
+
             for (GameObject g : list) {
                 g.move();
                 moveCounter++;
 
             }
+            player.move();
 
             try {
                 Thread.sleep(30);

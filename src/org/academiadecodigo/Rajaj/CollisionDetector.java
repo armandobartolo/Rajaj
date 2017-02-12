@@ -53,7 +53,6 @@ public class CollisionDetector {
 
     //ESTE E O SEGUINTE SÃO OS QUE IMPORTAM
     public boolean isCrashed() {
-        System.out.println("ilugwafu");
 
         for (GameObject g : list) {
 
@@ -90,14 +89,11 @@ public class CollisionDetector {
 
                 return true;
             } */
-            System.out.println("gx: " + gx + " px: " + px + " pw: " + pw);
-            if (gx > px && gx < pw) {
-                System.out.println("Inside collision");
+            if (gx > px && gx < pw && gy > ph && gy > py) {
                 return true;
             }
         }
 
-        System.out.println("returning false ------------------------------");
         return false;
     }
 

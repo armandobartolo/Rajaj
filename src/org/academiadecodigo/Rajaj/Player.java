@@ -17,6 +17,8 @@ public class Player extends GameObject implements KeyboardHandler{
     private int size;
     private CollisionDetector collisionDetector;
     private boolean jumping;
+    private double initialHeight;
+    private double actualHeight;
     // TODO: 11/02/17 Add get X and Y 
 
     public Player(GridPosition pos){
@@ -31,31 +33,35 @@ public class Player extends GameObject implements KeyboardHandler{
 
     }
 
-    @Override
+
     public void move() {
+
         if (jumping) {
             jump();
         }
-
-        jumping = false;
-        gravity();
+       // gravity();
     }
 
     public void jump() {
-        double initialHeight = getGridPosition().getY();
-        double actualHeight = getGridPosition().getY();
-        while (actualHeight - initialHeight == 170) {
-            System.out.println("inicial" + initialHeight + "actual" + actualHeight + "here");
-            getGridPosition().moveUp();
+        actualHeight = super.getGridPosition().getY();
+        System.out.println("in jump" + (actualHeight - initialHeight));
+
+
+        if (actualHeight - initialHeight >= -170) {
+            System.out.println("inicial" + initialHeight + "actual" + actualHeight);
+            super.getGridPosition().moveUp();
             actualHeight += 7;
+        } else {
+            jumping = false;
+            actualHeight = super.getGridPosition().getY();
         }
     }
 
-    public void gravity() {
+   /* public void gravity() {
         while (!collisionDetector.isOnTheFloor()){
             getGridPosition().moveDown();
         }
-    }
+    }*/
 
     public int getSize() {
         return size;
@@ -63,8 +69,8 @@ public class Player extends GameObject implements KeyboardHandler{
 
     @Override
     public void keyPressed(KeyboardEvent e) {
-        System.out.println("Jump!");
         jumping = true;
+        initialHeight = getGridPosition().getY();
     }
 
     @Override
