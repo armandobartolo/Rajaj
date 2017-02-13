@@ -28,9 +28,11 @@ public class Game implements MouseHandler {
     private int moveCounter;
     private LinkedList<GameObject> list = new LinkedList<>();
     private CollisionDetector collisionDetector;
-    private Sound sound;
+    private Sound sound, sound1;
     private boolean mousevent;
     private GameObject gameObject , gameObject1;
+    private boolean soundOff;
+
 
 
     ObjType[] a = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
@@ -44,12 +46,12 @@ public class Game implements MouseHandler {
     ObjType[] i = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
     ObjType[] j = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK,
             ObjType.BLANK, ObjType.FINISHLINE, ObjType.FLOOR};
-    ObjType[] k = {ObjType.BLANK, ObjType.SPECIALBLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] k = {ObjType.BLANK, ObjType.SPECIALBLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SPECIALBLANK, ObjType.FLOOR};
     ObjType[] l = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] m = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] n = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
 
-    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, b, a, a, a, a, a, a, a, a,
+    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, k, a, b, a, a, a, a, a, a, a, a,
             a, a, a, a, a, a, b, b, a, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c,
             c, c, c, a, a, a, a, a, a, a, a, a, c, c, c, a, a, a, a, a, a, a, a, a, a, c,
             c, c, c, c, c, c, d, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c, c,
@@ -63,6 +65,7 @@ public class Game implements MouseHandler {
         grid = GridFactory.makeGrid(width, height);
         grid1 = GridFactory.makeGrid(width, height);
         this.sound = new Sound("/resources/Inicial.wav");
+        this.sound1 = new Sound("/resources/xalana.wav");
         this.width=width;
 
         Mouse m =new Mouse(this);
@@ -78,6 +81,10 @@ public class Game implements MouseHandler {
 
             grid1.init(GridImage.MENU);
             sound.play();
+           if(soundOff)
+           {
+               sound.close();
+           }
         }
         sound.close();
         grid.init(GridImage.BACKGROUND);
@@ -118,14 +125,13 @@ public class Game implements MouseHandler {
 
             }
             if (collisionDetector.isXalanaMode()) {
-
-                //sound.close();
-                //this.sound = new Sound("/resources/xalana.wav");
+                sound.stop();
+                sound.close();
                 grid.init(GridImage.SPECIALBACKGROUND);
                 player.getGridPosition().hide();
                 //player = new Player(grid.makeGridPosition(150, -80, ObjType.SOFIA))
                 player.getGridPosition().show();
-                //sound.play();
+                sound1.play();
 
             }
 
@@ -144,7 +150,7 @@ public class Game implements MouseHandler {
 
             player.move();
 
-            if (!collisionDetector.isOnTheFloor()) {
+            if(!collisionDetector.isOnTheFloor()) {
                 player.gravity();
             }
 
@@ -165,29 +171,26 @@ public class Game implements MouseHandler {
         for (int o = 0; o < objHeight; o++) {
             int row = 10;
             for (int p = 0; p < objWidth; p++) {
-                list.add(GameObjectFactory.getNewGameObject(grid, row, col, level1[p][o]));
-                //gameObject = GameObjectFactory.getNewGameObject(grid, 10, 10, ObjType.WALL);
-                //gameObject1 = GameObjectFactory.getNewGameObject(grid, 10, 10, ObjType.WALL);
+                if (level1[o][p] != ObjType.BLANK) {
+                    list.add(GameObjectFactory.getNewGameObject(grid, row, col, level1[p][o]));
+                }
                 row += objPixelSize;
             }
             col += objPixelSize;
         }
+        gameObject1 = GameObjectFactory.getNewGameObject(grid, width, 10, ObjType.WALL);
+        gameObject = GameObjectFactory.getNewGameObject(grid, 0, 10, ObjType.WALL);
     }
 
     public void nextObject() {
-
-        Object o;
-
-        //list.removeFirst().getGridPosition().hide();
-        //gameObject1 = GameObjectFactory.getNewGameObject(grid, width, 10, ObjType.WALL);
+        gameObject = GameObjectFactory.getNewGameObject(grid, 0, 10, ObjType.WALL);
         int row = 10;
         for (int i = 0; i < objHeight; i++) {
             row += objPixelSize;
             list.add(GameObjectFactory.getNewGameObject(grid, width, row-70, level1[nextObj][i]));
             list.removeFirst().getGridPosition().hide();
-            //o=list.removeFirst();
-           // gameObject1 = GameObjectFactory.getNewGameObject(grid, 10, 10, ObjType.WALL);
-        }
+            gameObject1 = GameObjectFactory.getNewGameObject(grid, width, 10, ObjType.WALL);
+           }
         nextObj++;
     }
 
@@ -195,6 +198,10 @@ public class Game implements MouseHandler {
     public void mouseClicked(MouseEvent mouseEvent) {
         if (mouseEvent.getY() > 250 && mouseEvent.getX() > 400 && mouseEvent.getX() < 720) {
             mousevent = true;
+        }
+
+        if(mouseEvent.getY() > 420 && mouseEvent.getX() > 720){
+            soundOff=true;
         }
     }
 

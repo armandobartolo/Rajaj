@@ -47,8 +47,6 @@ public class Player extends GameObject implements KeyboardHandler {
     public void jump() {
         actualHeight = super.getGridPosition().getY();
 
-
-
         if (actualHeight - initialHeight >= -140) {
             super.getGridPosition().moveUp();
             actualHeight += 7;
@@ -61,6 +59,10 @@ public class Player extends GameObject implements KeyboardHandler {
     public void gravity() {
 
         getGridPosition().moveDown();
+        /* if(collisionDetector.isOnTheFloor())
+        {
+            jumping=true;
+        }*/
 
     }
 

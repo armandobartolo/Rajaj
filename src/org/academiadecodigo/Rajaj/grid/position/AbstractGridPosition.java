@@ -11,8 +11,6 @@ public abstract class AbstractGridPosition implements GridPosition {
     protected int width;
     protected int height;
     private Grid grid;
-    private ObjType image;
-
 
     public AbstractGridPosition(int width, int height, Grid grid) {
         this.width = width;
@@ -34,9 +32,6 @@ public abstract class AbstractGridPosition implements GridPosition {
     public Grid getGrid() {
         return grid;
     }
-
-
-
 
 
 }
