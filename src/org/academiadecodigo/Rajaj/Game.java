@@ -205,6 +205,7 @@ public class Game implements MouseHandler {
             list.add(GameObjectFactory.getNewGameObject(grid, width, row - 70, level1[nextObj][i]));
 
             gameObject1 = GameObjectFactory.getNewGameObject(grid, width, 10, ObjType.WALL);
+
         }
         list.removeFirst().getGridPosition().hide();
         nextObj++;

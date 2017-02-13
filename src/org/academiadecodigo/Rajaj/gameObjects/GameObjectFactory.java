@@ -8,7 +8,7 @@ import org.academiadecodigo.Rajaj.grid.Grid;
  */
 public class GameObjectFactory {
 
-    public static GameObject getNewGameObject(Grid grid,int width, int height,ObjType type) {
+    public static GameObject getNewGameObject(Grid grid, int width, int height, ObjType type) {
 
         GameObject gameObject;
 
@@ -26,16 +26,16 @@ public class GameObjectFactory {
                 gameObject = new FinishLine(grid.makeGridPosition(width, height, ObjType.FINISHLINE));
                 break;
             case FLOOR:
-                gameObject = new Floor(grid.makeGridPosition(width,height, ObjType.FLOOR));
+                gameObject = new Floor(grid.makeGridPosition(width, height, ObjType.FLOOR));
                 break;
             case SPECIALBLANK:
-                gameObject = new SpecialBlank(grid.makeGridPosition(width,height, ObjType.SPECIALBLANK));
+                gameObject = new SpecialBlank(grid.makeGridPosition(width, height, ObjType.SPECIALBLANK));
                 break;
             case WALL:
-                gameObject = new Wall(grid.makeGridPosition(width,height, ObjType.WALL));
+                gameObject = new Wall(grid.makeGridPosition(width, height, ObjType.WALL));
                 break;
             default:
-                gameObject = new Blank(grid.makeGridPosition(width,height, ObjType.BLANK));
+                gameObject = new Blank(grid.makeGridPosition(width, height, ObjType.BLANK));
 
         }
         return gameObject;

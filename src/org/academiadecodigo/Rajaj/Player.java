@@ -13,15 +13,12 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
  */
 public class Player extends GameObject implements KeyboardHandler {
 
-    private int size;
-    private CollisionDetector collisionDetector;
     private boolean jumping;
     private double initialHeight;
     private double actualHeight;
 
 
     public Player(GridPosition pos) {
-
 
         super(pos, ObjType.PLAYER);
 
@@ -30,8 +27,6 @@ public class Player extends GameObject implements KeyboardHandler {
         event.setKey(KeyboardEvent.KEY_SPACE);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
-
-
     }
 
 
@@ -40,9 +35,8 @@ public class Player extends GameObject implements KeyboardHandler {
         if (jumping) {
             jump();
         }
-
-
     }
+
 
     public void jump() {
         actualHeight = super.getGridPosition().getY();
@@ -56,19 +50,12 @@ public class Player extends GameObject implements KeyboardHandler {
         }
     }
 
+
     public void gravity() {
 
         getGridPosition().moveDown();
-        /* if(collisionDetector.isOnTheFloor())
-        {
-            jumping=true;
-        }*/
-
     }
 
-    public int getSize() {
-        return size;
-    }
 
     @Override
     public void keyPressed(KeyboardEvent e) {
@@ -76,8 +63,8 @@ public class Player extends GameObject implements KeyboardHandler {
         initialHeight = getGridPosition().getY();
     }
 
+
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
-
 }

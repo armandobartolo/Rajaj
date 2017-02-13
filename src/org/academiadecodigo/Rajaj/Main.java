@@ -6,7 +6,7 @@ package org.academiadecodigo.Rajaj;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        Game game = new Game(1130,570);
+        Game game = new Game(1130, 570);
 
 
         game.init();

@@ -9,7 +9,7 @@ public class Wall extends GameObject {
 
 
     public Wall(GridPosition position) {
-        super(position,ObjType.WALL);
+        super(position, ObjType.WALL);
     }
 
     @Override

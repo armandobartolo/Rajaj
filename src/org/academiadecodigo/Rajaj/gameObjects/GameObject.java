@@ -16,7 +16,7 @@ public abstract class GameObject {
     private boolean crashed;
 
 
-    public GameObject(GridPosition pos, ObjType objType){
+    public GameObject(GridPosition pos, ObjType objType) {
         gridPosition = pos;
         this.objType = objType;
 
@@ -39,15 +39,6 @@ public abstract class GameObject {
 
     public GridPosition getPos() {
         return gridPosition;
-    }
-
-
-    public boolean isCrashed() {
-        return crashed;
-    }
-
-    public boolean setCrashed(){
-        return crashed = true;
     }
 
     public void move() {

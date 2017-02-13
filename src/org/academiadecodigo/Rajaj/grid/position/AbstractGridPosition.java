@@ -1,6 +1,5 @@
 package org.academiadecodigo.Rajaj.grid.position;
 
-import org.academiadecodigo.Rajaj.gameObjects.ObjType;
 import org.academiadecodigo.Rajaj.grid.Grid;
 
 /**
@@ -19,12 +18,12 @@ public abstract class AbstractGridPosition implements GridPosition {
 
     }
 
-    public double getWidth(){
+    public double getWidth() {
         return width;
     }
 
 
-    public double getHeight(){
+    public double getHeight() {
         return height;
     }
 

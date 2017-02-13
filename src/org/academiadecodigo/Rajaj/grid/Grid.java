@@ -10,16 +10,11 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
 public interface Grid {
 
 
-    public void init(GridImage image);
+    void init(GridImage image);
 
-    public int getWidth();
+    GridPosition makeGridPosition(int width, int height, ObjType image);
 
-    public int getHeight();
-
-    public GridPosition makeGridPosition(int width, int height, ObjType image);
-
-    public void delete();
-
+    void delete();
 
 
 }

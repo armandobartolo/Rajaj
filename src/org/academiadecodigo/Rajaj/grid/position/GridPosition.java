@@ -8,23 +8,19 @@ import org.academiadecodigo.Rajaj.grid.GridImage;
  */
 public interface GridPosition {
 
-    public double getWidth();
+    double getX();
 
-    public  double getHeight();
+    double getY();
 
-    public double getX();
+    void show();
 
-    public double getY();
-
-    public void show();
-
-    public void hide();
+    void hide();
 
     void moveUp();
 
     void moveDown();
 
-    public void move();
+    void move();
 
     //public void setImage(ObjType type);
 

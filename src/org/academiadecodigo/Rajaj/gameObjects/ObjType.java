@@ -1,6 +1,5 @@
 package org.academiadecodigo.Rajaj.gameObjects;
 
-import org.academiadecodigo.Rajaj.grid.Grid;
 import org.academiadecodigo.Rajaj.grid.GridImage;
 
 /**

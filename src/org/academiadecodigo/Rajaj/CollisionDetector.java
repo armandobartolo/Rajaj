@@ -1,6 +1,7 @@
 package org.academiadecodigo.Rajaj;
 
 import org.academiadecodigo.Rajaj.gameObjects.*;
+
 import java.util.LinkedList;
 
 
@@ -25,22 +26,19 @@ public class CollisionDetector {
 
 
     /**
-
-     pX - - - - - pW
-     |           |
-     |     P     |
-     |           |
-     pY - - - - - pH
-
-     rX - - - - - - - rW
-     |               |
-     |               |
-     |       R       |
-     |               |
-     |               |
-     rY - - - - - - - rH
-
-
+     * pX - - - - - pW
+     * |           |
+     * |     P     |
+     * |           |
+     * pY - - - - - pH
+     * <p>
+     * rX - - - - - - - rW
+     * |               |
+     * |               |
+     * |       R       |
+     * |               |
+     * |               |
+     * rY - - - - - - - rH
      */
 
 
@@ -78,8 +76,6 @@ public class CollisionDetector {
 
         return false;
     }
-
-
 
 
     public boolean isOnTheFloor() {

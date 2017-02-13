@@ -20,22 +20,22 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
     public SimpleGfxGridObject(int width, int height, SimpleGfxGrid grid, ObjType image) {
 
-        super(width,height,grid);
+        super(width, height, grid);
 
         if (image == ObjType.BLANK) {
             return;
         }
 
-        this.width=width;
-        this.height=height;
-        
-        this.simpleGfxGrid=grid;
-        this.image=image.getImage().getpath();
+        this.width = width;
+        this.height = height;
+
+        this.simpleGfxGrid = grid;
+        this.image = image.getImage().getpath();
 
 
-        this.pic=new
+        this.pic = new
 
-        Picture(width, height, this.image);
+                Picture(width, height, this.image);
 
         show();
 
