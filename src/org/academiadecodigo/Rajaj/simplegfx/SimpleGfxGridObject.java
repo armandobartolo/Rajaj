@@ -14,16 +14,31 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     private Picture pic;
     private SimpleGfxGrid simpleGfxGrid;
     private String image;
-
+    private int width;
+    private int height;
 
 
     public SimpleGfxGridObject(int width, int height, SimpleGfxGrid grid, ObjType image) {
 
         super(width,height,grid);
+
+        if (image == ObjType.BLANK) {
+            return;
+        }
+
+        this.width=width;
+        this.height=height;
+        
         this.simpleGfxGrid=grid;
         this.image=image.getImage().getpath();
-        this.pic = new Picture(width, height, this.image);
+
+
+        this.pic=new
+
+        Picture(width, height, this.image);
+
         show();
+
     }
 
     @Override
@@ -35,21 +50,21 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
     @Override
     public void hide() {
+
+        //pic.translate(width,height-70);
         pic.delete();
-
-
     }
 
     @Override
     public void moveUp() {
 
-        pic.translate(0,-14);
+        pic.translate(0, -14);
         pic.draw();
     }
 
     @Override
     public void moveDown() {
-        pic.translate(0,7);
+        pic.translate(0, 7);
         pic.draw();
     }
 
