@@ -31,6 +31,8 @@ public class Game implements MouseHandler {
     private Sound sound;
     private boolean mousevent;
 
+
+
     ObjType[] a = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] b = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.FLOOR};
     ObjType[] c = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.FLOOR};
@@ -42,16 +44,16 @@ public class Game implements MouseHandler {
     ObjType[] i = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
     ObjType[] j = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK,
             ObjType.BLANK, ObjType.FINISHLINE, ObjType.FLOOR};
-    ObjType[] k = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SPECIALBLANK, ObjType.FLOOR};
+    ObjType[] k = {ObjType.BLANK, ObjType.SPECIALBLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] l = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] m = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] n = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
 
-    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, k, a, b, a, a, a, a, a, a, a, a,
+    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, b, a, a, a, a, a, a, a, a,
             a, a, a, a, a, a, b, b, a, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c,
             c, c, c, a, a, a, a, a, a, a, a, a, c, c, c, a, a, a, a, a, a, a, a, a, a, c,
             c, c, c, c, c, c, d, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c, c,
-            c, e, f, f, f, a, g, g, h, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c,
+            c, e, f, f, f, a, g, g, h, k, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c,
             c, d, c, c, c, a, a, a, a, a, a, a, a, a, a, a, a, a, b, b, a, a, a, c, c, c,
             c, c, d, e, e, e, i, h, h, h, h, a, a, a, a, a, a, a, a, a, a, a, a, a, a, b,
             b, a, a, a, a, a, j, a, a, a, a, a, a, a, a, a, a, a, a, a, a};
@@ -63,12 +65,14 @@ public class Game implements MouseHandler {
         this.sound = new Sound("/resources/inicial.wav");
         this.width=width;
 
+        Mouse m =new Mouse(this);
+        m.addEventListener(MouseEventType.MOUSE_CLICKED);
+
     }
 
     public void init() {
 
-        Mouse m =new Mouse(this);
-        m.addEventListener(MouseEventType.MOUSE_CLICKED);
+
 
         while (!mousevent) {
 
@@ -81,6 +85,7 @@ public class Game implements MouseHandler {
         grid1.delete();
         sound.play();
         grid.init(GridImage.BACKGROUND);
+
         firstObjects();
 
         this.player = new Player(grid.makeGridPosition(150, -80, ObjType.PLAYER));
@@ -109,13 +114,14 @@ public class Game implements MouseHandler {
                 {
                     grid1.init(GridImage.GAMEOVER);
                 }
-                grid1.delete();
                 init();
 
             }
             if (collisionDetector.isXalanaMode()) {
-               // grid.delete();
+
                 grid.init(GridImage.SPECIALBACKGROUND);
+                player.getGridPosition().hide();
+                player.getGridPosition().show();
 
             }
 
