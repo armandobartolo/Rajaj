@@ -13,7 +13,7 @@ public enum GridImage {
     FINISHLINE("resources/finish.png"),
     BACKGROUND("resources/background.png"),
     MENU("resources/menu.png"),
-    GAMEOVER("resources/gameover.jpg"),
+    GAMEOVER("resources/gameOver.jpg"),
     SPECIALBACKGROUND("resources/xalana.jpg"),
     WALL("resources/wall.png");
 

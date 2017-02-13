@@ -13,6 +13,7 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
     private Picture pic;
     private SimpleGfxGrid simpleGfxGrid;
+    private String image;
 
 
 
@@ -20,7 +21,8 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
 
         super(width,height,grid);
         this.simpleGfxGrid=grid;
-        this.pic = new Picture(width, height, image.getImage().getpath());
+        this.image=image.getImage().getpath();
+        this.pic = new Picture(width, height, this.image);
         show();
     }
 
@@ -69,6 +71,14 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     public double getY() {
         return pic.getY();
     }
+
+    /*@Override
+    public void setImage(ObjType type){
+
+        this.image=type.getImage().getpath();
+        this.pic = new Picture(width, height, this.image);//makes sense --'
+
+    }*/
 
 
 }

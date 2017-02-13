@@ -30,7 +30,7 @@ public class Game implements MouseHandler {
     private CollisionDetector collisionDetector;
     private Sound sound;
     private boolean mousevent;
-
+    private GameObject gameObject , gameObject1;
 
 
     ObjType[] a = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
@@ -62,7 +62,7 @@ public class Game implements MouseHandler {
     Game(int width, int height) {
         grid = GridFactory.makeGrid(width, height);
         grid1 = GridFactory.makeGrid(width, height);
-        this.sound = new Sound("/resources/inicial.wav");
+        this.sound = new Sound("/resources/Inicial.wav");
         this.width=width;
 
         Mouse m =new Mouse(this);
@@ -72,7 +72,7 @@ public class Game implements MouseHandler {
 
     public void init() {
 
-
+        grid.init(GridImage.BACKGROUND);
 
         while (!mousevent) {
 
@@ -80,13 +80,12 @@ public class Game implements MouseHandler {
             sound.play();
         }
         sound.close();
-        this.sound = new Sound("/resources/indianaMusic.wav");
+        grid.init(GridImage.BACKGROUND);
+        firstObjects();
+        this.sound = new Sound("/resources/indiana.wav");
         mousevent=false;
         grid1.delete();
         sound.play();
-        grid.init(GridImage.BACKGROUND);
-
-        firstObjects();
 
         this.player = new Player(grid.makeGridPosition(150, -80, ObjType.PLAYER));
         this.collisionDetector = new CollisionDetector(list, player);
@@ -110,6 +109,7 @@ public class Game implements MouseHandler {
                 list.clear();
                 nextObj=17;
                 grid.delete();
+                //gameObject.getGridPosition().hide();
                 while(!mousevent)
                 {
                     grid1.init(GridImage.GAMEOVER);
@@ -119,9 +119,13 @@ public class Game implements MouseHandler {
             }
             if (collisionDetector.isXalanaMode()) {
 
+                //sound.close();
+                //this.sound = new Sound("/resources/xalana.wav");
                 grid.init(GridImage.SPECIALBACKGROUND);
                 player.getGridPosition().hide();
+                //player = new Player(grid.makeGridPosition(150, -80, ObjType.SOFIA))
                 player.getGridPosition().show();
+                //sound.play();
 
             }
 
@@ -162,6 +166,8 @@ public class Game implements MouseHandler {
             int row = 10;
             for (int p = 0; p < objWidth; p++) {
                 list.add(GameObjectFactory.getNewGameObject(grid, row, col, level1[p][o]));
+                //gameObject = GameObjectFactory.getNewGameObject(grid, 10, 10, ObjType.WALL);
+                //gameObject1 = GameObjectFactory.getNewGameObject(grid, 10, 10, ObjType.WALL);
                 row += objPixelSize;
             }
             col += objPixelSize;
@@ -169,14 +175,19 @@ public class Game implements MouseHandler {
     }
 
     public void nextObject() {
+
+        Object o;
+
+        //list.removeFirst().getGridPosition().hide();
+        //gameObject1 = GameObjectFactory.getNewGameObject(grid, width, 10, ObjType.WALL);
         int row = 10;
         for (int i = 0; i < objHeight; i++) {
             row += objPixelSize;
-            list.add(GameObjectFactory.getNewGameObject(grid, width, row - 70, level1[nextObj][i]));
+            list.add(GameObjectFactory.getNewGameObject(grid, width, row-70, level1[nextObj][i]));
             list.removeFirst().getGridPosition().hide();
-
+            //o=list.removeFirst();
+           // gameObject1 = GameObjectFactory.getNewGameObject(grid, 10, 10, ObjType.WALL);
         }
-        GameObjectFactory.getNewGameObject(grid, width, -58, ObjType.WALL);
         nextObj++;
     }
 
