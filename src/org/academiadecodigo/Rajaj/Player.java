@@ -49,7 +49,7 @@ public class Player extends GameObject implements KeyboardHandler {
 
 
 
-        if (actualHeight - initialHeight >= -170) {
+        if (actualHeight - initialHeight >= -140) {
             super.getGridPosition().moveUp();
             actualHeight += 7;
         } else {

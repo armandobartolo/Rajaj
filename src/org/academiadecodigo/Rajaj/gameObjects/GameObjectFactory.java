@@ -31,6 +31,9 @@ public class GameObjectFactory {
             case SPECIALBLANK:
                 gameObject = new SpecialBlank(grid.makeGridPosition(width,height, ObjType.SPECIALBLANK));
                 break;
+            case WALL:
+                gameObject = new Wall(grid.makeGridPosition(width,height, ObjType.WALL));
+                break;
             default:
                 gameObject = new Blank(grid.makeGridPosition(width,height, ObjType.BLANK));
 

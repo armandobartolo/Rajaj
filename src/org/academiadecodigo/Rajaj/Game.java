@@ -40,8 +40,8 @@ public class Game implements MouseHandler {
     ObjType[] g = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
     ObjType[] h = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] i = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
-    ObjType[] j = {ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FINISHLINE,
-            ObjType.FINISHLINE, ObjType.FINISHLINE, ObjType.FLOOR};
+    ObjType[] j = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK,
+            ObjType.BLANK, ObjType.FINISHLINE, ObjType.FLOOR};
     ObjType[] k = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] l = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] m = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.FLOOR};
@@ -60,7 +60,7 @@ public class Game implements MouseHandler {
     Game(int width, int height) {
         grid = GridFactory.makeGrid(width, height);
         grid1 = GridFactory.makeGrid(width, height);
-        this.sound = new Sound("/resources/indianaMusic.wav");
+        this.sound = new Sound("/resources/inicial.wav");
         this.width=width;
 
     }
@@ -71,9 +71,14 @@ public class Game implements MouseHandler {
         m.addEventListener(MouseEventType.MOUSE_CLICKED);
 
         while (!mousevent) {
-            grid.init(GridImage.MENU);
+
+            grid1.init(GridImage.MENU);
+            sound.play();
         }
-        grid.delete();
+        sound.close();
+        this.sound = new Sound("/resources/indianaMusic.wav");
+        mousevent=false;
+        grid1.delete();
         sound.play();
         grid.init(GridImage.BACKGROUND);
         firstObjects();
@@ -97,11 +102,22 @@ public class Game implements MouseHandler {
 
 
             if (collisionDetector.isCrashed()) {
-                break;
+                list.clear();
+                nextObj=17;
+                grid.delete();
+                while(!mousevent)
+                {
+                    grid1.init(GridImage.GAMEOVER);
+                }
+                grid1.delete();
+                init();
+
             }
 
+
             if (moveCounter % 7 == 0) {
-                 nextObject();
+                nextObject();
+
             }
 
 
@@ -118,11 +134,11 @@ public class Game implements MouseHandler {
             }
 
 
-          /* try {
-                Thread.sleep(30);
+          try {
+                Thread.sleep(15);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
-            }*/
+            }
 
         }
 
@@ -149,6 +165,7 @@ public class Game implements MouseHandler {
             list.removeFirst().getGridPosition().hide();
 
         }
+        GameObjectFactory.getNewGameObject(grid, width, -58, ObjType.WALL);
         nextObj++;
     }
 

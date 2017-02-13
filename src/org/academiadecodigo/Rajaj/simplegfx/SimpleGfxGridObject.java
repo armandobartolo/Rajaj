@@ -24,14 +24,6 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
         show();
     }
 
-    public double getxPic() {
-        return pic.getX();
-    }
-
-    public void setPic(Picture pic) {
-        this.pic = pic;
-    }
-
     @Override
     public void show() {
 
@@ -49,15 +41,12 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     @Override
     public void moveUp() {
 
-        System.out.println("Move up");
-        //pic.delete();
         pic.translate(0,-14);
         pic.draw();
     }
 
     @Override
     public void moveDown() {
-        //pic.delete();
         pic.translate(0,7);
         pic.draw();
     }
@@ -80,13 +69,6 @@ public class SimpleGfxGridObject extends AbstractGridPosition {
     public double getY() {
         return pic.getY();
     }
-
-    @Override
-    public void setImage(ObjType image) {
-        super.setImage(image);
-        pic = new Picture(getWidth(), getHeight(), image.getImage().getpath());
-    }
-
 
 
 }

@@ -10,10 +10,12 @@ public enum GridImage {
     FLAME("resources/flame1.png"),
     FLOOR("resources/floor.png"),
     PLATFORM("resources/platform.png"),
-    FINISHLINE(" "),
+    FINISHLINE("resources/finish.png"),
     BACKGROUND("resources/background.png"),
     MENU("resources/menu.png"),
-    GAMEOVER("resources/gameover.png");
+    GAMEOVER("resources/gameover.jpg"),
+    SPECIALBACKGROUND("resources/xalana.png"),
+    WALL("resources/wall.png");
 
 
     private String path;

@@ -14,8 +14,8 @@ public enum ObjType {
     SPECIALBLANK(GridImage.BLANK),
     FINISHLINE(GridImage.FINISHLINE),
     PLAYER(GridImage.BEE),
-    FLOOR(GridImage.FLOOR);
-
+    FLOOR(GridImage.FLOOR),
+    WALL(GridImage.WALL);
 
     private GridImage image;
 
