@@ -14,7 +14,7 @@ public enum GridImage {
     BACKGROUND("resources/background.png"),
     MENU("resources/menu.png"),
     GAMEOVER("resources/gameover.jpg"),
-    SPECIALBACKGROUND("resources/xalana.png"),
+    SPECIALBACKGROUND("resources/xalana.jpg"),
     WALL("resources/wall.png");
 
 

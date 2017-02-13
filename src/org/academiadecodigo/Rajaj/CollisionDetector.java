@@ -12,6 +12,11 @@ public class CollisionDetector {
 
     private LinkedList<GameObject> list;
     private Player player;
+    private boolean xalanaMode;
+
+    public boolean isXalanaMode() {
+        return xalanaMode;
+    }
 
     public CollisionDetector(LinkedList<GameObject> list, Player player) {
         this.list = list;
@@ -44,7 +49,7 @@ public class CollisionDetector {
 
         for (GameObject g : list) {
 
-            if (g instanceof Blank || g instanceof SpecialBlank || g instanceof Floor) {
+            if (g instanceof Blank || g instanceof Floor) {
                 continue;
             }
 
@@ -63,6 +68,10 @@ public class CollisionDetector {
             ph += py;
 
             if (gx > px && gx < pw && gh < ph && gh > py) {
+                if (g instanceof SpecialBlank) {
+                    xalanaMode = true;
+                    return false;
+                }
                 return true;
             }
         }

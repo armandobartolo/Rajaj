@@ -42,12 +42,12 @@ public class Game implements MouseHandler {
     ObjType[] i = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.SQUARE, ObjType.FLOOR};
     ObjType[] j = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK,
             ObjType.BLANK, ObjType.FINISHLINE, ObjType.FLOOR};
-    ObjType[] k = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
+    ObjType[] k = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SPECIALBLANK, ObjType.FLOOR};
     ObjType[] l = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.SQUARE, ObjType.SQUARE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] m = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.FLOOR};
     ObjType[] n = {ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.BLANK, ObjType.TRIANGLE, ObjType.BLANK, ObjType.BLANK, ObjType.FLOOR};
 
-    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, b, a, a, a, a, a, a, a, a,
+    ObjType[][] level1 = {a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, k, a, b, a, a, a, a, a, a, a, a,
             a, a, a, a, a, a, b, b, a, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c,
             c, c, c, a, a, a, a, a, a, a, a, a, c, c, c, a, a, a, a, a, a, a, a, a, a, c,
             c, c, c, c, c, c, d, a, a, a, a, a, a, a, a, a, a, a, a, a, c, c, c, c, c, c,
@@ -111,6 +111,11 @@ public class Game implements MouseHandler {
                 }
                 grid1.delete();
                 init();
+
+            }
+            if (collisionDetector.isXalanaMode()) {
+               // grid.delete();
+                grid.init(GridImage.SPECIALBACKGROUND);
 
             }
 
