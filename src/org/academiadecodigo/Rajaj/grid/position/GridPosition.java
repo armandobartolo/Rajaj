@@ -26,5 +26,7 @@ public interface GridPosition {
 
     public void move();
 
+    //public void setImage(ObjType type);
+
 
 }

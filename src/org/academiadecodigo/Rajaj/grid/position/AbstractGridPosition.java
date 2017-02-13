@@ -8,10 +8,10 @@ import org.academiadecodigo.Rajaj.grid.Grid;
  */
 public abstract class AbstractGridPosition implements GridPosition {
 
-    private int width;
-    private int height;
+    protected int width;
+    protected int height;
     private Grid grid;
-    private String image;
+    private ObjType image;
 
 
     public AbstractGridPosition(int width, int height, Grid grid) {
@@ -34,6 +34,8 @@ public abstract class AbstractGridPosition implements GridPosition {
     public Grid getGrid() {
         return grid;
     }
+
+
 
 
 
