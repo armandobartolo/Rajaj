@@ -16,8 +16,6 @@ public interface GridPosition {
 
     public double getY();
 
-    public void setImage(ObjType image);
-
     public void show();
 
     public void hide();
@@ -28,6 +26,5 @@ public interface GridPosition {
 
     public void move();
 
-    public boolean equals(GridPosition position);
 
 }

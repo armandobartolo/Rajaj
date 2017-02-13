@@ -19,7 +19,7 @@ public abstract class GameObject {
     public GameObject(GridPosition pos, ObjType objType){
         gridPosition = pos;
         this.objType = objType;
-        pos.setImage(objType);
+
     }
 
     public Grid getGrid() {

@@ -7,8 +7,6 @@ import org.academiadecodigo.Rajaj.grid.position.GridPosition;
  */
 public class Square extends GameObject {
 
-    private int size;
-
     public Square(GridPosition pos){
         super(pos, ObjType.SQUARE);
     }

@@ -18,7 +18,6 @@ public abstract class AbstractGridPosition implements GridPosition {
         this.width = width;
         this.height = height;
         this.grid = grid;
-        //this.image=ObjType.BLANK.getImage().getpath();
 
     }
 
@@ -37,14 +36,5 @@ public abstract class AbstractGridPosition implements GridPosition {
     }
 
 
-    @Override
-    public void setImage(ObjType type) {
-        //this.image=type.getImage();
-        //show();
-    }
 
-    @Override
-    public boolean equals(GridPosition pos) {
-        return this.width == pos.getWidth() && this.height == pos.getHeight() ? true : false;
-    }
 }

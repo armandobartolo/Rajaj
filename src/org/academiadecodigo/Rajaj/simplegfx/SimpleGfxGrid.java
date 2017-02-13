@@ -60,6 +60,7 @@ public class SimpleGfxGrid implements Grid {
 
     public void delete() {
         pic.delete();
+        pic=null;
     }
 
     /**

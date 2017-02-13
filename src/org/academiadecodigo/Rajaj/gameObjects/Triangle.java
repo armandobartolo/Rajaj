@@ -13,7 +13,6 @@ public class Triangle extends GameObject{
         super(pos, ObjType.TRIANGLE);
     }
 
-    private int size;
 
 
 }
